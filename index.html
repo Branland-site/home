@@ -394,6 +394,37 @@
       z-index: 1;
     }
 
+    /* Статистика сервера */
+    .server-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin: 20px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-item {
+      background: rgba(255, 100, 50, 0.08);
+      border: 1px solid rgba(255, 100, 50, 0.2);
+      border-radius: 12px;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .stat-value {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
     /* Карточки */
     .grid {
       display: grid;
@@ -677,6 +708,16 @@
           </div>
           <div class="ip-display" id="serverIp" title="Нажмите, чтобы скопировать">100.109.53.40:25565</div>
           <div class="hint">Подключение через Tailscale</div>
+          <div class="server-stats">
+            <div class="stat-item">
+              <div class="stat-label">Версия</div>
+              <div class="stat-value" id="serverVersion">Загрузка...</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">Игроки</div>
+              <div class="stat-value" id="serverPlayers">Загрузка...</div>
+            </div>
+          </div>
           <div class="divider"></div>
           <div class="row">
             <button class="btn primary copy-btn" id="copyIp">СКОПИРОВАТЬ IP</button>
@@ -797,8 +838,7 @@
           connection_guide: 'connection-guide.txt',
           requires_tailscale: true,
           telegram_url: 'https://t.me/BL_Mods'
-        },
-        discordWebhookUrl: 'https://discord.com/api/webhooks/1537894307975921714/rLwT-Rvus7r--QLBfWOUUvB9i7HeBtAx3-6hK5M9xKmahr4Bg6ARqwCQNlUPMXRgPlqi'
+        }
       };
 
       const $ = s => document.querySelector(s);
@@ -877,40 +917,6 @@
 
       function serverStatus() {
         $('#statusText').textContent = 'Онлайн';
-        // Отправляем уведомление в Discord при загрузке сайта
-        sendDiscordNotification();
-      }
-
-      async function sendDiscordNotification() {
-        try {
-          const webhookUrl = state.discordWebhookUrl;
-          if (!webhookUrl) return;
-
-          const embed = {
-            title: '🟢 Сервер БРЕНЛЕНД онлайн',
-            description: 'Кто-то посетил сайт сервера',
-            color: 0xff6b2b, // Оранжевый цвет
-            fields: [
-              { name: 'IP адрес', value: state.server.display || 'Неизвестно', inline: true },
-              { name: 'Статус', value: 'Онлайн', inline: true },
-              { name: 'Время', value: new Date().toLocaleString('ru-RU'), inline: true }
-            ],
-            footer: { text: 'БРЕНЛЕНД Minecraft Server' },
-            timestamp: new Date().toISOString()
-          };
-
-          const response = await fetch(webhookUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ embeds: [embed] })
-          });
-
-          if (!response.ok) {
-            console.warn('Discord webhook error:', response.status);
-          }
-        } catch (error) {
-          console.warn('Discord webhook failed:', error);
-        }
       }
 
       async function loadGuide() {

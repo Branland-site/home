@@ -3,27 +3,28 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#1a0a2e">
+  <meta name="theme-color" content="#1a0a02">
   <title>БРЕНЛЕНД — Minecraft Server</title>
   <link rel="icon" type="image/png" href="ico.png">
   <link rel="apple-touch-icon" href="ico.png">
   <style>
     :root {
-      --bg: #0f0a1a;
-      --surface: rgba(30, 15, 50, 0.8);
-      --surface-hover: rgba(45, 20, 70, 0.9);
-      --border: rgba(180, 130, 255, 0.2);
-      --border-strong: rgba(200, 150, 255, 0.5);
-      --text: #f5ecff;
-      --text-muted: #b09cc9;
-      --accent: #c084fc;
-      --accent-2: #f472b6;
-      --accent-3: #a78bfa;
-      --gold: #fbbf24;
-      --gradient-1: linear-gradient(135deg, #c084fc, #f472b6);
-      --gradient-2: linear-gradient(135deg, #a78bfa, #60a5fa);
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-      --radius: 24px;
+      --bg: #0f0703;
+      --surface: rgba(50, 20, 10, 0.8);
+      --surface-hover: rgba(70, 28, 14, 0.9);
+      --border: rgba(255, 100, 50, 0.25);
+      --border-strong: rgba(255, 130, 70, 0.55);
+      --text: #fff5ec;
+      --text-muted: #cc9a80;
+      --accent: #ff6b2b;
+      --accent-2: #ff9500;
+      --accent-3: #ff3b1f;
+      --gold: #ffcc00;
+      --gradient-1: linear-gradient(135deg, #ff6b2b, #ff9500);
+      --gradient-2: linear-gradient(135deg, #ff3b1f, #ff6b2b);
+      --gradient-3: linear-gradient(135deg, #cc3300, #ff6600);
+      --shadow: 0 20px 60px rgba(80, 20, 0, 0.6);
+      --radius: 20px;
       --transition: 0.3s cubic-bezier(0.2, 0.9, 0.3, 1);
     }
 
@@ -38,16 +39,16 @@
       overflow-x: hidden;
       min-height: 100vh;
       background-image: 
-        radial-gradient(ellipse at 20% 30%, rgba(192, 132, 252, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 70%, rgba(244, 114, 182, 0.1) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, #150d25 0%, #0a0615 100%);
+        radial-gradient(ellipse at 20% 30%, rgba(255, 100, 50, 0.18) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(255, 150, 0, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, #1a0d05 0%, #0a0502 100%);
     }
 
     body::before {
       content: "";
       position: fixed;
       inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c084fc' fill-opacity='0.04'%3E%3Cpath d='M25 25v-6h-3v6h-6v3h6v6h3v-6h6v-3h-6zm0-20V0h-3v5h-5v3h5v5h3V8h5V5h-5z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      background: url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff6b2b' fill-opacity='0.05'%3E%3Cpath d='M25 25v-6h-3v6h-6v3h6v6h3v-6h6v-3h-6zm0-20V0h-3v5h-5v3h5v5h3V8h5V5h-5z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
       pointer-events: none;
       z-index: 0;
     }
@@ -64,7 +65,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(20, 10, 35, 0.85);
+      background: rgba(30, 12, 4, 0.9);
       backdrop-filter: blur(25px);
       -webkit-backdrop-filter: blur(25px);
       border-bottom: 1px solid var(--border);
@@ -96,13 +97,13 @@
       font-weight: 900;
       font-size: 24px;
       color: #fff;
-      box-shadow: 0 8px 30px rgba(192, 132, 252, 0.4);
+      box-shadow: 0 8px 30px rgba(255, 100, 50, 0.5);
       transition: all var(--transition);
       text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     }
 
     .brand:hover .logo {
-      box-shadow: 0 12px 40px rgba(244, 114, 182, 0.5);
+      box-shadow: 0 12px 40px rgba(255, 150, 0, 0.6);
       transform: scale(1.08) rotate(-3deg);
     }
 
@@ -132,7 +133,7 @@
     .navbtn, .btn {
       padding: 12px 24px;
       border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(255, 255, 255, 0.04);
       color: var(--text);
       border-radius: 14px;
       font-weight: 600;
@@ -157,7 +158,7 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(192,132,252,0.1), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255,100,50,0.15), transparent);
       transition: 0.5s;
     }
 
@@ -167,8 +168,8 @@
 
     .navbtn:hover, .btn:hover {
       border-color: var(--border-strong);
-      background: rgba(192, 132, 252, 0.1);
-      box-shadow: 0 8px 25px rgba(192, 132, 252, 0.2);
+      background: rgba(255, 100, 50, 0.12);
+      box-shadow: 0 8px 25px rgba(255, 100, 50, 0.25);
       transform: translateY(-3px);
     }
 
@@ -176,7 +177,7 @@
       background: var(--gradient-1);
       border-color: transparent;
       color: #fff;
-      box-shadow: 0 8px 30px rgba(192, 132, 252, 0.4);
+      box-shadow: 0 8px 30px rgba(255, 100, 50, 0.5);
     }
 
     .btn.primary {
@@ -184,11 +185,11 @@
       border: none;
       color: #fff;
       font-weight: 700;
-      box-shadow: 0 8px 30px rgba(192, 132, 252, 0.3);
+      box-shadow: 0 8px 30px rgba(255, 100, 50, 0.4);
     }
 
     .btn.primary:hover {
-      box-shadow: 0 12px 40px rgba(244, 114, 182, 0.4);
+      box-shadow: 0 12px 40px rgba(255, 150, 0, 0.5);
       transform: translateY(-3px);
     }
 
@@ -198,9 +199,15 @@
       color: #fff;
     }
 
+    .btn.dark {
+      background: var(--gradient-3);
+      border: none;
+      color: #fff;
+    }
+
     .tg {
-      border-color: rgba(167, 139, 250, 0.4);
-      background: rgba(167, 139, 250, 0.08);
+      border-color: rgba(255, 150, 0, 0.4);
+      background: rgba(255, 150, 0, 0.08);
     }
 
     .hamb {
@@ -224,8 +231,8 @@
     .eyebrow {
       display: inline-block;
       padding: 8px 20px;
-      background: rgba(192, 132, 252, 0.1);
-      border: 1px solid rgba(192, 132, 252, 0.3);
+      background: rgba(255, 100, 50, 0.12);
+      border: 1px solid rgba(255, 100, 50, 0.35);
       border-radius: 50px;
       color: var(--accent);
       font-weight: 700;
@@ -244,7 +251,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      filter: drop-shadow(0 10px 40px rgba(192, 132, 252, 0.4));
+      filter: drop-shadow(0 10px 40px rgba(255, 100, 50, 0.5));
     }
 
     .lead {
@@ -259,8 +266,8 @@
       align-items: center;
       gap: 10px;
       padding: 12px 20px;
-      background: rgba(251, 191, 36, 0.08);
-      border: 1px solid rgba(251, 191, 36, 0.3);
+      background: rgba(255, 200, 0, 0.08);
+      border: 1px solid rgba(255, 200, 0, 0.35);
       border-radius: 14px;
       color: var(--gold);
       font-weight: 600;
@@ -286,7 +293,7 @@
       position: relative;
       overflow: hidden;
       transition: all var(--transition);
-      background: linear-gradient(145deg, rgba(40, 20, 70, 0.7), rgba(20, 10, 40, 0.9));
+      background: linear-gradient(145deg, rgba(60, 25, 12, 0.7), rgba(30, 12, 5, 0.9));
     }
 
     .server-panel::before {
@@ -296,7 +303,7 @@
       right: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(circle, rgba(192, 132, 252, 0.1) 0%, transparent 55%);
+      background: radial-gradient(circle, rgba(255, 100, 50, 0.12) 0%, transparent 55%);
       pointer-events: none;
       animation: rotate 20s linear infinite;
     }
@@ -307,7 +314,7 @@
 
     .server-panel:hover {
       border-color: var(--border-strong);
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7), 0 0 50px rgba(192, 132, 252, 0.2);
+      box-shadow: 0 30px 80px rgba(80, 20, 0, 0.7), 0 0 50px rgba(255, 100, 50, 0.25);
       transform: translateY(-6px);
     }
 
@@ -332,12 +339,12 @@
       align-items: center;
       gap: 10px;
       padding: 10px 18px;
-      background: rgba(192, 132, 252, 0.15);
-      border: 1px solid rgba(192, 132, 252, 0.4);
+      background: rgba(255, 100, 50, 0.18);
+      border: 1px solid rgba(255, 100, 50, 0.5);
       border-radius: 50px;
       font-weight: 700;
       font-size: 0.9rem;
-      color: var(--accent);
+      color: #ffb088;
       animation: glow 2.5s ease-in-out infinite;
     }
 
@@ -345,8 +352,8 @@
       width: 12px;
       height: 12px;
       border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 20px var(--accent);
+      background: #ff6b2b;
+      box-shadow: 0 0 25px #ff6b2b;
       animation: pulse-dot 1.8s ease-in-out infinite;
     }
 
@@ -380,7 +387,7 @@
 
     .divider {
       height: 2px;
-      background: linear-gradient(90deg, var(--accent), transparent, var(--accent-2));
+      background: linear-gradient(90deg, #ff3b1f, transparent, #ff9500);
       margin: 25px 0;
       border-radius: 2px;
       position: relative;
@@ -403,8 +410,8 @@
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
       transition: all var(--transition);
-      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
-      background: linear-gradient(145deg, rgba(35, 18, 60, 0.5), rgba(15, 8, 30, 0.9));
+      box-shadow: 0 5px 30px rgba(50, 15, 5, 0.4);
+      background: linear-gradient(145deg, rgba(50, 20, 10, 0.55), rgba(20, 8, 3, 0.9));
       position: relative;
       overflow: hidden;
     }
@@ -428,14 +435,14 @@
     .card:hover {
       border-color: var(--border-strong);
       transform: translateY(-8px);
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(192, 132, 252, 0.15);
+      box-shadow: 0 25px 60px rgba(60, 15, 0, 0.6), 0 0 40px rgba(255, 100, 50, 0.2);
     }
 
     .icon {
       font-size: 3rem;
       margin-bottom: 18px;
       display: block;
-      filter: drop-shadow(0 5px 15px rgba(192, 132, 252, 0.3));
+      filter: drop-shadow(0 5px 15px rgba(255, 100, 50, 0.4));
     }
 
     .card h3 {
@@ -480,7 +487,7 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(15, 10, 26, 0.9);
+      background: rgba(15, 6, 2, 0.92);
       backdrop-filter: blur(15px);
       z-index: 200;
       align-items: center;
@@ -494,7 +501,7 @@
     }
 
     .modalbox {
-      background: #1a0f30;
+      background: #1a0d05;
       border: 1px solid var(--border-strong);
       border-radius: var(--radius);
       padding: 35px;
@@ -502,7 +509,7 @@
       width: 100%;
       max-height: 85vh;
       overflow-y: auto;
-      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 40px 100px rgba(60, 15, 0, 0.8);
     }
 
     /* Тост */
@@ -517,22 +524,22 @@
     }
 
     .toast {
-      background: #1a0f30;
+      background: #1a0d05;
       border: 1px solid var(--accent);
       color: var(--text);
       padding: 16px 24px;
       border-radius: 14px;
       font-weight: 600;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 15px 40px rgba(60, 15, 0, 0.7);
       animation: slideIn 0.35s ease;
     }
 
     .guidebox {
-      background: rgba(20, 10, 35, 0.8);
+      background: rgba(30, 12, 5, 0.85);
       border: 1px solid var(--border);
       border-radius: 18px;
       padding: 24px;
-      color: #d8c5f0;
+      color: #e8c4b0;
       font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
       font-size: 0.95rem;
       white-space: pre-wrap;
@@ -574,8 +581,8 @@
     }
 
     @keyframes glow {
-      0%, 100% { box-shadow: 0 0 25px rgba(192, 132, 252, 0.3); }
-      50% { box-shadow: 0 0 50px rgba(244, 114, 182, 0.5); }
+      0%, 100% { box-shadow: 0 0 25px rgba(255, 100, 50, 0.35); }
+      50% { box-shadow: 0 0 50px rgba(255, 150, 0, 0.55); }
     }
 
     @keyframes pulse-dot {
@@ -605,7 +612,7 @@
         top: 100%;
         left: 0;
         right: 0;
-        background: #150d25;
+        background: #1a0d05;
         border: 1px solid var(--border);
         border-radius: 0 0 24px 24px;
         padding: 25px;
@@ -648,7 +655,6 @@
   </header>
 
   <main class="wrap">
-    <!-- Главная -->
     <section id="home" class="section active">
       <div class="hero">
         <div>
@@ -675,7 +681,7 @@
           <div class="row">
             <button class="btn primary copy-btn" id="copyIp">СКОПИРОВАТЬ IP</button>
             <button class="btn secondary" data-go="connect">ИНСТРУКЦИЯ</button>
-            <a class="btn" href="https://tailscale.com/download" target="_blank" rel="noopener">TAILSCALE</a>
+            <a class="btn dark" href="https://tailscale.com/download" target="_blank" rel="noopener">TAILSCALE</a>
           </div>
         </div>
       </div>
@@ -696,12 +702,11 @@
           <span class="icon">⚡</span>
           <h3>Tailscale</h3>
           <p>Сервер доступен через приватную сеть Tailscale. Перед входом установите клиент и следуйте инструкции подключения.</p>
-          <button class="btn" data-go="connect">Инструкция</button>
+          <button class="btn dark" data-go="connect">Инструкция</button>
         </div>
       </div>
     </section>
 
-    <!-- Новости -->
     <section id="news" class="section">
       <h2>Новости</h2>
       <div class="card" style="margin-bottom: 35px;">
@@ -709,11 +714,10 @@
         <p style="color: var(--text-muted); margin-bottom: 20px;">Чтобы не дублировать посты и не терять актуальность, официальный источник новостей — канал Telegram Бренленда.</p>
         <a class="btn primary" href="https://t.me/BL_Mods" target="_blank" rel="noopener">ПЕРЕЙТИ К НОВОСТЯМ</a>
       </div>
-      <h3 style="color: #d8c5f0; margin-bottom: 20px; font-size: 1.5rem;">Архив сайта</h3>
+      <h3 style="color: #e8c4b0; margin-bottom: 20px; font-size: 1.5rem;">Архив сайта</h3>
       <div id="posts" class="grid"><div class="skeleton"></div></div>
     </section>
 
-    <!-- Сборка -->
     <section id="builds" class="section">
       <h2>Основная сборка</h2>
       <div class="card" style="margin-bottom: 35px;">
@@ -724,11 +728,10 @@
           <a class="btn secondary" href="https://tailscale.com/download" target="_blank" rel="noopener">СКАЧАТЬ TAILSCALE</a>
         </div>
       </div>
-      <h3 style="color: #d8c5f0; margin-bottom: 20px; font-size: 1.5rem;">Архив релизов сайта</h3>
+      <h3 style="color: #e8c4b0; margin-bottom: 20px; font-size: 1.5rem;">Архив релизов сайта</h3>
       <div id="buildList" class="grid"><div class="skeleton"></div></div>
     </section>
 
-    <!-- Подключение -->
     <section id="connect" class="section">
       <h2>Как подключиться</h2>
       <div class="card">
@@ -736,14 +739,13 @@
         <div class="row" style="margin-bottom: 30px;">
           <button class="btn primary copy-btn">СКОПИРОВАТЬ IP</button>
           <a class="btn secondary" href="https://tailscale.com/download" target="_blank" rel="noopener">СКАЧАТЬ TAILSCALE</a>
-          <a class="btn" href="https://t.me/BL_Mods" target="_blank" rel="noopener">Помощь в Telegram</a>
+          <a class="btn dark" href="https://t.me/BL_Mods" target="_blank" rel="noopener">Помощь в Telegram</a>
         </div>
-        <h3 style="color: #d8c5f0; margin-bottom: 20px;">Инструкция</h3>
+        <h3 style="color: #e8c4b0; margin-bottom: 20px;">Инструкция</h3>
         <div id="guide" class="guidebox">Загрузка инструкции...</div>
       </div>
     </section>
 
-    <!-- О сервере -->
     <section id="about" class="section">
       <h2>О сервере</h2>
       <div class="grid" style="margin-top: 0;">
@@ -848,14 +850,14 @@
       function buildCard(b) {
         return `<div class="card build">
           <div class="row" style="margin-bottom: 15px;">
-            <span style="padding: 7px 16px; background: rgba(192,132,252,0.15); border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Minecraft ${esc(b.version||'—')}</span>
+            <span style="padding: 7px 16px; background: rgba(255,100,50,0.2); border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Minecraft ${esc(b.version||'—')}</span>
             <span style="color: var(--text-muted); font-size: 0.85rem;">${fmt(b.date)}</span>
           </div>
           <h3>${esc(b.name||'Сборка Бренленда')}</h3>
           <ul style="margin: 12px 0 20px 22px; color: var(--text-muted);">
             ${(b.changelog||[]).map(x=>`<li>${esc(x)}</li>`).join('')||'<li>Описание не указано</li>'}
           </ul>
-          ${b.download_url?`<a class="btn" href="${esc(b.download_url)}" target="_blank" rel="noopener">Архивный GitHub Release</a>`:''}
+          ${b.download_url?`<a class="btn dark" href="${esc(b.download_url)}" target="_blank" rel="noopener">Архивный GitHub Release</a>`:''}
           <a class="btn primary" href="${esc(state.server.telegram_url)}" target="_blank" rel="noopener" style="margin-top: 12px;">Актуальная сборка в Telegram</a>
         </div>`;
       }

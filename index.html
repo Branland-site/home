@@ -394,37 +394,6 @@
       z-index: 1;
     }
 
-    /* Статистика сервера */
-    .server-stats {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin: 20px 0;
-      position: relative;
-      z-index: 1;
-    }
-
-    .stat-item {
-      background: rgba(255, 100, 50, 0.08);
-      border: 1px solid rgba(255, 100, 50, 0.2);
-      border-radius: 12px;
-      padding: 12px;
-      text-align: center;
-    }
-
-    .stat-label {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .stat-value {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
     /* Карточки */
     .grid {
       display: grid;
@@ -578,14 +547,6 @@
       overflow-y: auto;
     }
 
-    .skeleton {
-      min-height: 160px;
-      border-radius: var(--radius);
-      background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.04) 75%);
-      background-size: 200% 100%;
-      animation: shimmer 1.8s infinite;
-    }
-
     .footer {
       border-top: 1px solid var(--border);
       padding: 40px 0;
@@ -600,15 +561,6 @@
       align-items: center;
       gap: 25px;
       flex-wrap: wrap;
-    }
-
-    .empty {
-      padding: 50px;
-      border: 2px dashed var(--border-strong);
-      border-radius: var(--radius);
-      text-align: center;
-      color: var(--text-muted);
-      grid-column: 1 / -1;
     }
 
     @keyframes glow {
@@ -629,10 +581,6 @@
     @keyframes slideIn {
       from { opacity: 0; transform: translateX(60px); }
       to { opacity: 1; transform: translateX(0); }
-    }
-
-    @keyframes shimmer {
-      to { background-position: -200% 0; }
     }
 
     @media (max-width: 900px) {
@@ -676,8 +624,6 @@
       <button class="hamb" id="hamb" aria-label="Меню">☰</button>
       <nav class="links" id="navLinks">
         <button class="navbtn active" data-route="home">Главная</button>
-        <button class="navbtn" data-route="news">Новости</button>
-        <button class="navbtn" data-route="builds">Сборка</button>
         <button class="navbtn" data-route="connect">Подключение</button>
         <button class="navbtn" data-route="about">О сервере</button>
         <a class="navbtn tg" href="https://t.me/BL_Mods" target="_blank" rel="noopener">Telegram ↗</a>
@@ -708,16 +654,6 @@
           </div>
           <div class="ip-display" id="serverIp" title="Нажмите, чтобы скопировать">100.109.53.40:25565</div>
           <div class="hint">Подключение через Tailscale</div>
-          <div class="server-stats">
-            <div class="stat-item">
-              <div class="stat-label">Версия</div>
-              <div class="stat-value" id="serverVersion">Загрузка...</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-label">Игроки</div>
-              <div class="stat-value" id="serverPlayers">Загрузка...</div>
-            </div>
-          </div>
           <div class="divider"></div>
           <div class="row">
             <button class="btn primary copy-btn" id="copyIp">СКОПИРОВАТЬ IP</button>
@@ -728,49 +664,18 @@
       </div>
       <div class="grid">
         <div class="card">
-          <span class="icon">📦</span>
-          <h3>Основная сборка</h3>
-          <p>Скачивается из Telegram-канала Бренленда. Там публикуется актуальный архив, версии и важные комментарии к установке.</p>
-          <a class="btn primary" href="https://t.me/BL_Mods" target="_blank" rel="noopener">Скачать в Telegram</a>
-        </div>
-        <div class="card">
-          <span class="icon">📰</span>
-          <h3>Новости</h3>
-          <p>Все новости, анонсы, хотфиксы и события теперь выходят в Telegram, чтобы игроки получали обновления быстрее.</p>
-          <a class="btn secondary" href="https://t.me/BL_Mods" target="_blank" rel="noopener">Читать новости</a>
-        </div>
-        <div class="card">
           <span class="icon">⚡</span>
           <h3>Tailscale</h3>
           <p>Сервер доступен через приватную сеть Tailscale. Перед входом установите клиент и следуйте инструкции подключения.</p>
           <button class="btn dark" data-go="connect">Инструкция</button>
         </div>
-      </div>
-    </section>
-
-    <section id="news" class="section">
-      <h2>Новости</h2>
-      <div class="card" style="margin-bottom: 35px;">
-        <div class="notice" style="margin-bottom: 18px;">📰 Все новости Бренленда публикуются в Telegram</div>
-        <p style="color: var(--text-muted); margin-bottom: 20px;">Чтобы не дублировать посты и не терять актуальность, официальный источник новостей — канал Telegram Бренленда.</p>
-        <a class="btn primary" href="https://t.me/BL_Mods" target="_blank" rel="noopener">ПЕРЕЙТИ К НОВОСТЯМ</a>
-      </div>
-      <h3 style="color: #e8c4b0; margin-bottom: 20px; font-size: 1.5rem;">Архив сайта</h3>
-      <div id="posts" class="grid"><div class="skeleton"></div></div>
-    </section>
-
-    <section id="builds" class="section">
-      <h2>Основная сборка</h2>
-      <div class="card" style="margin-bottom: 35px;">
-        <div class="notice" style="margin-bottom: 18px;">📦 Основная сборка скачивается из Telegram-канала</div>
-        <p style="color: var(--text-muted); margin-bottom: 20px;">Актуальный файл сборки, changelog и инструкции по установке публикуются в Telegram Бренленда. Это главный и самый свежий источник сборки.</p>
-        <div class="row">
-          <a class="btn primary" href="https://t.me/BL_Mods" target="_blank" rel="noopener">СКАЧАТЬ В TELEGRAM</a>
-          <a class="btn secondary" href="https://tailscale.com/download" target="_blank" rel="noopener">СКАЧАТЬ TAILSCALE</a>
+        <div class="card">
+          <span class="icon">💬</span>
+          <h3>Сообщество</h3>
+          <p>Новости, сборка и объявления — в официальном Telegram-канале.</p>
+          <a class="btn primary" href="https://t.me/BL_Mods" target="_blank" rel="noopener">TELEGRAM-КАНАЛ</a>
         </div>
       </div>
-      <h3 style="color: #e8c4b0; margin-bottom: 20px; font-size: 1.5rem;">Архив релизов сайта</h3>
-      <div id="buildList" class="grid"><div class="skeleton"></div></div>
     </section>
 
     <section id="connect" class="section">
@@ -801,12 +706,6 @@
           <p>Вход выполняется через Tailscale. Это важная часть инфраструктуры БЛ, поэтому IP не предназначен для обычного прямого подключения.</p>
           <button class="btn secondary" data-go="connect">КАК ПОДКЛЮЧИТЬСЯ</button>
         </div>
-        <div class="card">
-          <span class="icon">💬</span>
-          <h3>Сообщество</h3>
-          <p>Новости, сборка и объявления — в официальном Telegram-канале.</p>
-          <a class="btn primary" href="https://t.me/BL_Mods" target="_blank" rel="noopener">TELEGRAM-КАНАЛ</a>
-        </div>
       </div>
     </section>
   </main>
@@ -829,8 +728,6 @@
   <script>
     (function() {
       const state = {
-        posts: [],
-        builds: [],
         server: {
           display: '100.109.53.40:25565',
           ip: '100.109.53.40',
@@ -844,12 +741,6 @@
       const $ = s => document.querySelector(s);
       const $$ = s => [...document.querySelectorAll(s)];
 
-      const fmt = d => d ? new Date(d).toLocaleDateString('ru-RU', { year: 'numeric', month: 'long', day: 'numeric' }) : 'Без даты';
-
-      function esc(s = '') {
-        return String(s).replace(/[&<>'"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[m]));
-      }
-
       function toast(t) {
         const el = document.createElement('div');
         el.className = 'toast';
@@ -862,14 +753,6 @@
         }, 2800);
       }
 
-      async function loadJson(p, f) {
-        try {
-          const r = await fetch(p + '?v=' + Date.now(), { cache: 'no-store' });
-          if (!r.ok) throw Error(r.status);
-          return await r.json();
-        } catch (e) { return f; }
-      }
-
       async function loadText(p) {
         try {
           const r = await fetch(p + '?v=' + Date.now(), { cache: 'no-store' });
@@ -878,41 +761,8 @@
         } catch (e) { return 'Инструкция подключения пока недоступна. Проверьте путь connection_guide в data/server.json или откройте Telegram Бренленда.'; }
       }
 
-      function postCard(p, i) {
-        return `<div class="card" style="animation: fadeIn 0.5s ease ${i*0.07}s both;">
-          <span class="icon">📰</span>
-          <div style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px;">${fmt(p.date)} · ${esc(p.author||'Бренленд')}</div>
-          <h3>${esc(p.title||'Новость')}</h3>
-          <p>${esc((p.content||'').slice(0,150))}${(p.content||'').length>150?'...':''}</p>
-          <button class="btn secondary" onclick="openPost('${esc(p.id)}')">Читать</button>
-        </div>`;
-      }
-
-      function buildCard(b) {
-        return `<div class="card build">
-          <div class="row" style="margin-bottom: 15px;">
-            <span style="padding: 7px 16px; background: rgba(255,100,50,0.2); border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Minecraft ${esc(b.version||'—')}</span>
-            <span style="color: var(--text-muted); font-size: 0.85rem;">${fmt(b.date)}</span>
-          </div>
-          <h3>${esc(b.name||'Сборка Бренленда')}</h3>
-          <ul style="margin: 12px 0 20px 22px; color: var(--text-muted);">
-            ${(b.changelog||[]).map(x=>`<li>${esc(x)}</li>`).join('')||'<li>Описание не указано</li>'}
-          </ul>
-          ${b.download_url?`<a class="btn dark" href="${esc(b.download_url)}" target="_blank" rel="noopener">Архивный GitHub Release</a>`:''}
-          <a class="btn primary" href="${esc(state.server.telegram_url)}" target="_blank" rel="noopener" style="margin-top: 12px;">Актуальная сборка в Telegram</a>
-        </div>`;
-      }
-
       function render() {
-        const tg = state.server.telegram_url || 'https://t.me/BL_Mods';
-        $$('.tg-link, a[href="https://t.me/BL_Mods"]').forEach(a => a.href = tg);
         $('#serverIp').textContent = state.server.display || `${state.server.ip}:${state.server.port || 25565}`;
-
-        const posts = [...state.posts].sort((a,b) => new Date(b.date||0) - new Date(a.date||0));
-        const builds = [...state.builds].sort((a,b) => new Date(b.date||0) - new Date(a.date||0));
-
-        $('#posts').innerHTML = posts.length ? posts.map(postCard).join('') : '<div class="empty">Локальный архив сайта пуст. Актуальные новости — в Telegram Бренленда.</div>';
-        $('#buildList').innerHTML = builds.length ? builds.map(buildCard).join('') : '<div class="empty">Архив релизов сайта пуст. Основная сборка скачивается в Telegram Бренленда.</div>';
       }
 
       function serverStatus() {
@@ -923,15 +773,6 @@
         const box = $('#guide');
         box.textContent = await loadText(state.server.connection_guide || 'connection-guide.txt');
       }
-
-      window.openPost = function(id) {
-        const p = state.posts.find(x => x.id === id);
-        if (!p) return;
-        $('#modalContent').innerHTML = `<h2 style="margin-bottom: 12px;">${esc(p.title)}</h2>
-          <div style="color: var(--text-muted); margin-bottom: 22px;">${fmt(p.date)} · ${esc(p.author||'Бренленд')}</div>
-          <p style="white-space: pre-wrap;">${esc(p.content||'')}</p>`;
-        $('#modal').classList.add('open');
-      };
 
       window.closeModal = function() {
         $('#modal').classList.remove('open');
@@ -963,9 +804,6 @@
       document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
       (async () => {
-        state.posts = await loadJson('data/posts.json', []);
-        state.builds = await loadJson('data/builds.json', []);
-        state.server = { ...state.server, ...await loadJson('data/server.json', state.server) };
         render();
         loadGuide();
         serverStatus();

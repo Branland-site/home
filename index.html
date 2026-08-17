@@ -353,122 +353,6 @@
       background-clip: text;
     }
 
-    /* Форма регистрации */
-    .register-form {
-      background: linear-gradient(145deg, rgba(50, 20, 10, 0.7), rgba(20, 8, 3, 0.95));
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 35px;
-      backdrop-filter: blur(15px);
-      box-shadow: var(--shadow);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 8px;
-      color: #ffb088;
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 14px 18px;
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--text);
-      border-radius: 12px;
-      font-size: 1rem;
-      font-family: inherit;
-      transition: all var(--transition);
-    }
-
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 20px rgba(255, 100, 50, 0.2);
-    }
-
-    .form-group select {
-      appearance: none;
-      cursor: pointer;
-    }
-
-    .form-group select option {
-      background: #1a0d05;
-      color: var(--text);
-    }
-
-    .social-buttons {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      margin: 25px 0;
-    }
-
-    .btn.social {
-      justify-content: center;
-      font-weight: 700;
-      padding: 15px;
-      font-size: 1rem;
-    }
-
-    .btn.social.twitch {
-      background: #9146ff;
-      border: none;
-      color: #fff;
-    }
-
-    .btn.social.google {
-      background: #fff;
-      border: none;
-      color: #333;
-    }
-
-    .btn.social.discord {
-      background: #5865F2;
-      border: none;
-      color: #fff;
-    }
-
-    .form-divider {
-      text-align: center;
-      margin: 25px 0;
-      color: var(--text-muted);
-      position: relative;
-    }
-
-    .form-divider::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 50%;
-      width: 40%;
-      height: 1px;
-      background: var(--border);
-    }
-
-    .form-divider::after {
-      content: "";
-      position: absolute;
-      right: 0;
-      top: 50%;
-      width: 40%;
-      height: 1px;
-      background: var(--border);
-    }
-
-    /* Карточки игроков */
     .players-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -701,6 +585,54 @@
       box-shadow: 0 0 60px rgba(255, 100, 50, 0.5);
     }
 
+    .form-container {
+      background: linear-gradient(145deg, rgba(60, 25, 12, 0.7), rgba(30, 12, 5, 0.9));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 35px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #ffb088;
+      font-size: 0.95rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 14px 18px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 1rem;
+      transition: all var(--transition);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 20px rgba(255, 100, 50, 0.3);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
     .guidebox {
       background: rgba(30, 12, 5, 0.85);
       border: 1px solid var(--border);
@@ -811,7 +743,8 @@
       <nav class="links" id="navLinks">
         <button class="navbtn active" data-route="home">Главная</button>
         <button class="navbtn" data-route="players">Игроки</button>
-        <button class="navbtn" data-route="register">Вступить</button>
+        <button class="navbtn" data-route="register">Регистрация</button>
+        <button class="navbtn" data-route="join">Заявка</button>
         <button class="navbtn" data-route="connect">Подключение</button>
         <button class="navbtn" data-route="about">О сервере</button>
         <a class="navbtn tg" href="https://t.me/BL_Mods" target="_blank" rel="noopener">Telegram ↗</a>
@@ -826,12 +759,12 @@
         <div>
           <div class="eyebrow">✦ Minecraft · БЛ</div>
           <h1>БРЕНЛЕНД</h1>
-          <p class="lead">Живой Minecraft-мир Бренленда. Основная сборка, объявления и все свежие новости теперь находятся в официальном Telegram-канале проекта.</p>
+          <p class="lead">Живой Minecraft-мир Бренленда. Присоединяйся к нам прямо сейчас!</p>
           <div class="notice">⚡ Подключение к серверу только через Tailscale</div>
           <div class="row">
             <a class="btn primary" href="https://t.me/BL_Mods" target="_blank" rel="noopener">ОТКРЫТЬ TELEGRAM</a>
-            <button class="btn secondary" data-go="connect">КАК ПОДКЛЮЧИТЬСЯ?</button>
-            <a class="btn donate" href="https://www.donationalerts.com/r/branland" target="_blank" rel="noopener">💰 ПОДДЕРЖАТЬ</a>
+            <button class="btn secondary" data-go="register">РЕГИСТРАЦИЯ</button>
+            <button class="btn" data-go="join" style="background: linear-gradient(135deg, #ff9500, #ffcc00); color: #1a0a02; border: none; font-weight: 900;">📝 ЗАЯВКА</button>
           </div>
         </div>
         <div class="server-panel">
@@ -861,46 +794,61 @@
     </section>
 
     <section id="register" class="section">
-      <h2>Вступить в Бренленд</h2>
-      <div class="register-form">
-        <h3 style="color: #ffb088; margin-bottom: 15px; font-size: 1.3rem;">Регистрация</h3>
-        <p style="color: var(--text-muted); margin-bottom: 20px;">Выберите способ регистрации или заполните форму вручную.</p>
-        
-        <div class="social-buttons">
-          <button class="btn social twitch" onclick="alert('Регистрация через Twitch будет доступна после настройки OAuth')">🎮 Войти через Twitch</button>
-          <button class="btn social google" onclick="alert('Регистрация через Google будет доступна после настройки OAuth')">🔵 Войти через Google</button>
-          <button class="btn social discord" onclick="alert('Регистрация через Discord будет доступна после настройки OAuth')">💬 Войти через Discord</button>
-        </div>
-        
-        <div class="form-divider">ИЛИ</div>
-        
-        <form id="registerForm" onsubmit="handleRegister(event)">
+      <h2>Регистрация</h2>
+      <div class="form-container">
+        <form action="https://formsubmit.co/branland.off@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Новая регистрация на Бренленд">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
           <div class="form-group">
-            <label>Никнейм в Minecraft</label>
-            <input type="text" name="minecraft_nick" required placeholder="Ваш ник в игре">
+            <label for="regNick">Игровой ник *</label>
+            <input type="text" id="regNick" name="nick" required placeholder="Введите ваш ник">
           </div>
           <div class="form-group">
-            <label>Возраст</label>
-            <input type="number" name="age" required min="1" max="100" placeholder="Сколько вам лет?">
+            <label for="regPassword">Пароль *</label>
+            <input type="password" id="regPassword" name="password" required minlength="6" placeholder="Минимум 6 символов">
           </div>
           <div class="form-group">
-            <label>Discord или Telegram для связи *</label>
-            <input type="text" name="contact" required placeholder="@username или discord tag">
+            <label for="regDiscord">Discord (обязательно) *</label>
+            <input type="text" id="regDiscord" name="discord" required placeholder="username или username#1234">
           </div>
           <div class="form-group">
-            <label>Почему хотите присоединиться?</label>
-            <textarea name="reason" rows="4" placeholder="Расскажите о себе и почему хотите играть на Бренленде"></textarea>
+            <label for="regTelegram">Telegram (обязательно) *</label>
+            <input type="text" id="regTelegram" name="telegram" required placeholder="@username">
+          </div>
+          <button type="submit" class="btn primary" style="width: 100%; font-size: 1.1rem;">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="join" class="section">
+      <h2>Заявка на вступление</h2>
+      <div class="form-container">
+        <form action="https://formsubmit.co/branland.off@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Новая заявка на вступление в Бренленд">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <div class="form-group">
+            <label for="joinNick">Игровой ник *</label>
+            <input type="text" id="joinNick" name="nick" required placeholder="Ваш ник в Minecraft">
           </div>
           <div class="form-group">
-            <label>Опыт игры в Minecraft</label>
-            <select name="experience">
-              <option value="новичок">Новичок (меньше года)</option>
-              <option value="средний">Средний (1-3 года)</option>
-              <option value="опытный">Опытный (3+ лет)</option>
-              <option value="профи">Профессионал (5+ лет)</option>
-            </select>
+            <label for="joinAge">Возраст *</label>
+            <input type="number" id="joinAge" name="age" required min="10" max="100" placeholder="Сколько вам лет?">
           </div>
-          <button type="submit" class="btn primary" style="width: 100%; justify-content: center; font-size: 1.1rem; padding: 16px;">📨 ОТПРАВИТЬ ЗАЯВКУ</button>
+          <div class="form-group">
+            <label for="joinDiscord">Discord *</label>
+            <input type="text" id="joinDiscord" name="discord" required placeholder="username или username#1234">
+          </div>
+          <div class="form-group">
+            <label for="joinTelegram">Telegram *</label>
+            <input type="text" id="joinTelegram" name="telegram" required placeholder="@username">
+          </div>
+          <div class="form-group">
+            <label for="joinAbout">Расскажите о себе *</label>
+            <textarea id="joinAbout" name="about" required placeholder="Почему хотите присоединиться? Что умеете?"></textarea>
+          </div>
+          <button type="submit" class="btn donate" style="width: 100%; font-size: 1.1rem;">📝 ОТПРАВИТЬ ЗАЯВКУ</button>
         </form>
       </div>
     </section>
@@ -934,10 +882,10 @@
           <button class="btn secondary" data-go="connect" style="margin-top: 15px;">КАК ПОДКЛЮЧИТЬСЯ</button>
         </div>
         <div style="background: linear-gradient(145deg, rgba(50, 20, 10, 0.55), rgba(20, 8, 3, 0.9)); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px;">
-          <span style="font-size: 2.5rem;">💰</span>
-          <h3 style="margin: 10px 0;">Поддержать сервер</h3>
-          <p style="color: var(--text-muted);">Помогите серверу развиваться! Любая сумма пойдёт на улучшение.</p>
-          <a class="btn donate" href="https://www.donationalerts.com/r/branland" target="_blank" rel="noopener" style="margin-top: 15px;">💰 ПОДДЕРЖАТЬ</a>
+          <span style="font-size: 2.5rem;">📝</span>
+          <h3 style="margin: 10px 0;">Стать участником</h3>
+          <p style="color: var(--text-muted);">Заполни заявку и присоединяйся к нашему сообществу!</p>
+          <button class="btn" data-go="join" style="margin-top: 15px; background: linear-gradient(135deg, #ff9500, #ffcc00); color: #1a0a02; border: none; font-weight: 900;">📝 ЗАЯВКА</button>
         </div>
       </div>
     </section>
@@ -971,8 +919,7 @@
         server: {
           display: '100.109.53.40:25565',
           connection_guide: 'connection-guide.txt',
-          telegram_url: 'https://t.me/BL_Mods',
-          admin_email: 'branland.off@gmail.com'
+          telegram_url: 'https://t.me/BL_Mods'
         }
       };
 
@@ -1031,19 +978,6 @@
       window.flipCard = function(index) {
         const card = $('#playerCard-' + index);
         if (card) card.classList.toggle('flipped');
-      };
-
-      window.handleRegister = function(event) {
-        event.preventDefault();
-        const form = event.target;
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
-        
-        console.log('Заявка на вступление:', data);
-        console.log('Отправка на почту:', state.server.admin_email);
-        
-        toast('✅ Заявка отправлена! Мы свяжемся с вами.');
-        form.reset();
       };
 
       function render() {

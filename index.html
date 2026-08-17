@@ -165,6 +165,28 @@
       color: #fff;
     }
 
+    .btn.donate {
+      background: linear-gradient(135deg, #ff9500, #ffcc00);
+      border: none;
+      color: #1a0a02;
+      font-weight: 800;
+      font-size: 1.1rem;
+      padding: 16px 32px;
+      box-shadow: 0 8px 30px rgba(255, 200, 0, 0.5);
+      animation: donatePulse 2s ease-in-out infinite;
+    }
+
+    @keyframes donatePulse {
+      0%, 100% { box-shadow: 0 8px 30px rgba(255, 200, 0, 0.4); }
+      50% { box-shadow: 0 8px 50px rgba(255, 200, 0, 0.8); }
+    }
+
+    .btn.donate:hover {
+      background: linear-gradient(135deg, #ffaa00, #ffdd00);
+      box-shadow: 0 12px 40px rgba(255, 200, 0, 0.7);
+      transform: translateY(-3px) scale(1.05);
+    }
+
     .tg {
       border-color: rgba(255, 150, 0, 0.4);
       background: rgba(255, 150, 0, 0.08);
@@ -330,7 +352,92 @@
       background-clip: text;
     }
 
-    /* Карточки игроков - увеличенная высота */
+    /* Донат секция */
+    .donate-section {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(145deg, rgba(255, 100, 50, 0.15), rgba(255, 150, 0, 0.1));
+      border: 2px solid rgba(255, 200, 0, 0.3);
+      border-radius: var(--radius);
+      margin: 30px 0;
+    }
+
+    .donate-title {
+      font-size: 2rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #ff9500, #ffcc00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 15px;
+    }
+
+    .donate-description {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+    }
+
+    /* Топ донатеров */
+    .top-donators {
+      margin-top: 40px;
+    }
+
+    .top-donators h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #ffcc00, #ff9500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .donators-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .donator-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 15px 20px;
+      background: rgba(255, 100, 50, 0.08);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      transition: all var(--transition);
+    }
+
+    .donator-item:hover {
+      border-color: rgba(255, 200, 0, 0.5);
+      background: rgba(255, 200, 0, 0.1);
+      transform: translateX(10px);
+    }
+
+    .donator-rank {
+      font-size: 1.5rem;
+      font-weight: 900;
+      min-width: 40px;
+      text-align: center;
+    }
+
+    .donator-name {
+      flex: 1;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .donator-amount {
+      font-weight: 800;
+      color: #ffcc00;
+      font-size: 1.2rem;
+    }
+
+    /* Карточки игроков */
     .players-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -346,7 +453,7 @@
     .player-card {
       position: relative;
       width: 100%;
-      height: 700px; /* Увеличена высота */
+      height: 700px;
       transform-style: preserve-3d;
       transition: transform 0.8s cubic-bezier(0.2, 0.9, 0.3, 1);
       border-radius: 24px;
@@ -384,7 +491,7 @@
     }
 
     .player-image-container {
-      height: 75%; /* Больше места под изображение */
+      height: 75%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -412,7 +519,6 @@
       justify-content: center;
     }
 
-    /* Градиенты для ников игроков */
     .player-name {
       font-size: 1.8rem;
       font-weight: 800;
@@ -493,12 +599,7 @@
       color: #ff6b2b;
     }
 
-    /* Эффекты при наведении */
-    .player-card-wrapper:hover .player-card:not(.flipped) .player-image {
-      transform: scale(1.03);
-    }
-
-    /* Усиленные эффекты для первых 4 игроков */
+    /* Эффекты для карточек */
     .effect-fire .player-card:not(.flipped) .player-image {
       border-color: #ff4500;
       box-shadow: 0 0 80px #ff4500, 0 0 160px #ff6600, 0 0 240px #ff9900;
@@ -514,15 +615,6 @@
         box-shadow: 0 0 100px #ff6600, 0 0 200px #ff9900, 0 0 300px #ffcc00;
         border-color: #ffcc00;
       }
-    }
-
-    .effect-fire .player-card:not(.flipped) .player-name {
-      animation: fireNameGlow 1.5s ease-in-out infinite;
-    }
-
-    @keyframes fireNameGlow {
-      0%, 100% { filter: drop-shadow(0 0 10px #ff4500) brightness(1); }
-      50% { filter: drop-shadow(0 0 25px #ff6600) brightness(1.2); }
     }
 
     .effect-purple .player-card:not(.flipped) .player-image {
@@ -725,6 +817,7 @@
       <nav class="links" id="navLinks">
         <button class="navbtn active" data-route="home">Главная</button>
         <button class="navbtn" data-route="players">Игроки</button>
+        <button class="navbtn" data-route="donate">Донат</button>
         <button class="navbtn" data-route="connect">Подключение</button>
         <button class="navbtn" data-route="about">О сервере</button>
         <a class="navbtn tg" href="https://t.me/BL_Mods" target="_blank" rel="noopener">Telegram ↗</a>
@@ -769,6 +862,31 @@
       <h2>Игроки сервера</h2>
       <p style="color: var(--text-muted); margin-bottom: 20px;">Наведи курсор на карточку, чтобы увидеть эффект. Нажми, чтобы перевернуть.</p>
       <div class="players-grid" id="playersGrid"></div>
+    </section>
+
+    <section id="donate" class="section">
+      <h2>Поддержать сервер</h2>
+      <div class="donate-section">
+        <div class="donate-title">💰 Поддержи Бренленд</div>
+        <p class="donate-description">Любая сумма помогает серверу развиваться. Чем больше донат — тем выше ты в топе!</p>
+        <a href="https://www.donationalerts.com/r/branland" target="_blank" rel="noopener" class="btn donate">
+          💰 ПОДДЕРЖАТЬ СЕРВЕР
+        </a>
+      </div>
+
+      <div class="top-donators">
+        <h3>🏆 Топ донатеров</h3>
+        <div class="donators-list" id="donatorsList">
+          <div class="donator-item">
+            <div class="donator-rank">🥇</div>
+            <div class="donator-name">Ждём первого донатера!</div>
+            <div class="donator-amount">0₽</div>
+          </div>
+        </div>
+        <p style="color: var(--text-muted); margin-top: 20px; font-size: 0.9rem;">
+          Топ обновляется автоматически после каждого доната
+        </p>
+      </div>
     </section>
 
     <section id="connect" class="section">
@@ -828,7 +946,8 @@
           display: '100.109.53.40:25565',
           connection_guide: 'connection-guide.txt',
           telegram_url: 'https://t.me/BL_Mods'
-        }
+        },
+        donateUrl: 'https://www.donationalerts.com/r/branland'
       };
 
       const $ = s => document.querySelector(s);

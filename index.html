@@ -11,21 +11,14 @@
     :root {
       --bg: #0f0703;
       --surface: rgba(50, 20, 10, 0.8);
-      --surface-hover: rgba(70, 28, 14, 0.9);
       --border: rgba(255, 100, 50, 0.25);
-      --border-strong: rgba(255, 130, 70, 0.55);
       --text: #fff5ec;
       --text-muted: #cc9a80;
       --accent: #ff6b2b;
-      --accent-2: #ff9500;
-      --accent-3: #ff3b1f;
       --gold: #ffcc00;
-      --gradient-1: linear-gradient(135deg, #ff6b2b, #ff9500);
-      --gradient-2: linear-gradient(135deg, #ff3b1f, #ff6b2b);
-      --gradient-3: linear-gradient(135deg, #cc3300, #ff6600);
       --shadow: 0 20px 60px rgba(80, 20, 0, 0.6);
       --radius: 20px;
-      --transition: 0.3s cubic-bezier(0.2, 0.9, 0.3, 1);
+      --transition: 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -42,15 +35,6 @@
         radial-gradient(ellipse at 20% 30%, rgba(255, 100, 50, 0.18) 0%, transparent 50%),
         radial-gradient(ellipse at 80% 70%, rgba(255, 150, 0, 0.15) 0%, transparent 50%),
         radial-gradient(ellipse at 50% 50%, #1a0d05 0%, #0a0502 100%);
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff6b2b' fill-opacity='0.05'%3E%3Cpath d='M25 25v-6h-3v6h-6v3h6v6h3v-6h6v-3h-6zm0-20V0h-3v5h-5v3h5v5h3V8h5V5h-5z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
     }
 
     .wrap { 
@@ -89,7 +73,7 @@
     .logo {
       width: 56px;
       height: 56px;
-      background: var(--gradient-1);
+      background: linear-gradient(135deg, #ff6b2b, #ff9500);
       border: none;
       border-radius: 18px;
       display: grid;
@@ -99,7 +83,6 @@
       color: #fff;
       box-shadow: 0 8px 30px rgba(255, 100, 50, 0.5);
       transition: all var(--transition);
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     }
 
     .brand:hover .logo {
@@ -110,7 +93,7 @@
     .brand-text strong {
       font-size: 1.6rem;
       font-weight: 900;
-      background: var(--gradient-1);
+      background: linear-gradient(135deg, #ff6b2b, #ff9500);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -144,63 +127,36 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      letter-spacing: 0.02em;
       backdrop-filter: blur(8px);
       font-family: inherit;
       position: relative;
       overflow: hidden;
     }
 
-    .navbtn::before, .btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,100,50,0.15), transparent);
-      transition: 0.5s;
-    }
-
-    .navbtn:hover::before, .btn:hover::before {
-      left: 100%;
-    }
-
     .navbtn:hover, .btn:hover {
-      border-color: var(--border-strong);
+      border-color: rgba(255, 130, 70, 0.55);
       background: rgba(255, 100, 50, 0.12);
       box-shadow: 0 8px 25px rgba(255, 100, 50, 0.25);
       transform: translateY(-3px);
     }
 
     .navbtn.active {
-      background: var(--gradient-1);
+      background: linear-gradient(135deg, #ff6b2b, #ff9500);
       border-color: transparent;
       color: #fff;
       box-shadow: 0 8px 30px rgba(255, 100, 50, 0.5);
     }
 
     .btn.primary {
-      background: var(--gradient-1);
+      background: linear-gradient(135deg, #ff6b2b, #ff9500);
       border: none;
       color: #fff;
       font-weight: 700;
       box-shadow: 0 8px 30px rgba(255, 100, 50, 0.4);
     }
 
-    .btn.primary:hover {
-      box-shadow: 0 12px 40px rgba(255, 150, 0, 0.5);
-      transform: translateY(-3px);
-    }
-
     .btn.secondary {
-      background: var(--gradient-2);
-      border: none;
-      color: #fff;
-    }
-
-    .btn.dark {
-      background: var(--gradient-3);
+      background: linear-gradient(135deg, #ff3b1f, #ff6b2b);
       border: none;
       color: #fff;
     }
@@ -225,7 +181,7 @@
       grid-template-columns: 1.1fr 0.9fr;
       gap: 50px;
       align-items: center;
-      padding: 80px 0 60px;
+      padding: 60px 0 40px;
     }
 
     .eyebrow {
@@ -234,30 +190,29 @@
       background: rgba(255, 100, 50, 0.12);
       border: 1px solid rgba(255, 100, 50, 0.35);
       border-radius: 50px;
-      color: var(--accent);
+      color: #ff6b2b;
       font-weight: 700;
       font-size: 0.85rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     .hero h1 {
-      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
       font-weight: 900;
       line-height: 1.05;
-      margin-bottom: 24px;
-      background: var(--gradient-1);
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #ff6b2b, #ff9500);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      filter: drop-shadow(0 10px 40px rgba(255, 100, 50, 0.5));
     }
 
     .lead {
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       color: var(--text-muted);
-      margin-bottom: 32px;
+      margin-bottom: 28px;
       max-width: 550px;
     }
 
@@ -265,206 +220,98 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 12px 20px;
+      padding: 10px 18px;
       background: rgba(255, 200, 0, 0.08);
       border: 1px solid rgba(255, 200, 0, 0.35);
       border-radius: 14px;
-      color: var(--gold);
+      color: #ffcc00;
       font-weight: 600;
       font-size: 0.9rem;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
 
     .row {
       display: flex;
-      gap: 14px;
+      gap: 12px;
       flex-wrap: wrap;
     }
 
     /* Серверная панель */
     .server-panel {
-      background: var(--surface);
+      background: linear-gradient(145deg, rgba(60, 25, 12, 0.7), rgba(30, 12, 5, 0.9));
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 35px;
+      padding: 30px;
       backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
       box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
       transition: all var(--transition);
-      background: linear-gradient(145deg, rgba(60, 25, 12, 0.7), rgba(30, 12, 5, 0.9));
-    }
-
-    .server-panel::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      right: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255, 100, 50, 0.12) 0%, transparent 55%);
-      pointer-events: none;
-      animation: rotate 20s linear infinite;
-    }
-
-    @keyframes rotate {
-      to { transform: rotate(360deg); }
     }
 
     .server-panel:hover {
-      border-color: var(--border-strong);
-      box-shadow: 0 30px 80px rgba(80, 20, 0, 0.7), 0 0 50px rgba(255, 100, 50, 0.25);
-      transform: translateY(-6px);
+      border-color: rgba(255, 130, 70, 0.55);
+      transform: translateY(-4px);
     }
 
     .server-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 24px;
-      position: relative;
-      z-index: 1;
+      margin-bottom: 20px;
     }
 
     .server-header h3 {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 700;
       letter-spacing: 0.1em;
-      color: var(--accent);
+      color: #ff6b2b;
     }
 
     .status-badge {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 10px 18px;
+      gap: 8px;
+      padding: 8px 16px;
       background: rgba(255, 100, 50, 0.18);
       border: 1px solid rgba(255, 100, 50, 0.5);
       border-radius: 50px;
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: #ffb088;
-      animation: glow 2.5s ease-in-out infinite;
     }
 
     .status-dot {
-      width: 12px;
-      height: 12px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
       background: #ff6b2b;
-      box-shadow: 0 0 25px #ff6b2b;
+      box-shadow: 0 0 15px #ff6b2b;
       animation: pulse-dot 1.8s ease-in-out infinite;
     }
 
     .ip-display {
-      font-size: clamp(1.5rem, 3vw, 2.3rem);
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
       font-weight: 800;
       color: #fff;
-      letter-spacing: 0.05em;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
       cursor: pointer;
-      transition: all var(--transition);
-      word-break: break-all;
-      position: relative;
-      z-index: 1;
-    }
-
-    .ip-display:hover {
-      background: var(--gradient-1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
     }
 
     .hint {
       color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-bottom: 24px;
-      position: relative;
-      z-index: 1;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
     }
 
     .divider {
       height: 2px;
       background: linear-gradient(90deg, #ff3b1f, transparent, #ff9500);
-      margin: 25px 0;
-      border-radius: 2px;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Карточки */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-      margin-top: 50px;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px;
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      transition: all var(--transition);
-      box-shadow: 0 5px 30px rgba(50, 15, 5, 0.4);
-      background: linear-gradient(145deg, rgba(50, 20, 10, 0.55), rgba(20, 8, 3, 0.9));
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--gradient-1);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .card:hover::after {
-      opacity: 1;
-    }
-
-    .card:hover {
-      border-color: var(--border-strong);
-      transform: translateY(-8px);
-      box-shadow: 0 25px 60px rgba(60, 15, 0, 0.6), 0 0 40px rgba(255, 100, 50, 0.2);
-    }
-
-    .icon {
-      font-size: 3rem;
-      margin-bottom: 18px;
-      display: block;
-      filter: drop-shadow(0 5px 15px rgba(255, 100, 50, 0.4));
-    }
-
-    .card h3 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      background: var(--gradient-1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .card p {
-      color: var(--text-muted);
-      font-size: 1rem;
-      margin-bottom: 22px;
+      margin: 20px 0;
     }
 
     /* Секции */
     .section {
       display: none;
-      padding: 50px 0 70px;
+      padding: 40px 0 60px;
       animation: fadeIn 0.5s ease;
     }
 
@@ -476,13 +323,238 @@
       font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 800;
       margin-bottom: 30px;
-      background: var(--gradient-2);
+      background: linear-gradient(135deg, #ff3b1f, #ff6b2b);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
-    /* Модальное окно */
+    /* Карточки игроков */
+    .players-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .player-card-wrapper {
+      perspective: 1200px;
+      cursor: pointer;
+    }
+
+    .player-card {
+      position: relative;
+      width: 100%;
+      height: 420px;
+      transform-style: preserve-3d;
+      transition: transform 0.8s cubic-bezier(0.2, 0.9, 0.3, 1);
+      border-radius: var(--radius);
+    }
+
+    .player-card.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .player-card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: linear-gradient(145deg, rgba(50, 20, 10, 0.7), rgba(20, 8, 3, 0.95));
+      transition: all 0.4s ease;
+    }
+
+    .player-card-front {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .player-card-back {
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .player-image-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: radial-gradient(circle, rgba(255, 100, 50, 0.1), transparent 70%);
+    }
+
+    .player-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255, 100, 50, 0.4);
+      box-shadow: 0 0 40px rgba(255, 100, 50, 0.3);
+      transition: all 0.4s ease;
+    }
+
+    .player-info {
+      padding: 20px;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .player-name {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #fff, #ffb088);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .player-description {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .player-quote {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #ffb088;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .player-quote-mark {
+      font-size: 3rem;
+      opacity: 0.3;
+      margin-bottom: 15px;
+    }
+
+    /* Эффекты при наведении */
+    .player-card-wrapper:hover .player-card:not(.flipped) .player-image {
+      transform: scale(1.1);
+      box-shadow: 0 0 60px rgba(255, 100, 50, 0.6);
+    }
+
+    /* Эффект огня для Xsioder */
+    .effect-fire .player-card:not(.flipped) .player-image {
+      border-color: #ff4500;
+      box-shadow: 0 0 60px #ff4500, 0 0 120px #ff6600;
+      animation: fireEffect 1s ease-in-out infinite;
+    }
+
+    @keyframes fireEffect {
+      0%, 100% { box-shadow: 0 0 40px #ff4500, 0 0 80px #ff6600; }
+      50% { box-shadow: 0 0 70px #ff6600, 0 0 140px #ff9900; }
+    }
+
+    /* Эффект фиолетового свечения */
+    .effect-purple .player-card:not(.flipped) .player-image {
+      border-color: #a855f7;
+      box-shadow: 0 0 60px #a855f7, 0 0 120px #c084fc;
+      animation: purpleGlow 1.5s ease-in-out infinite;
+    }
+
+    @keyframes purpleGlow {
+      0%, 100% { box-shadow: 0 0 40px #a855f7, 0 0 80px #c084fc; }
+      50% { box-shadow: 0 0 70px #c084fc, 0 0 140px #d8b4fe; }
+    }
+
+    /* Эффект зелёного свечения */
+    .effect-green .player-card:not(.flipped) .player-image {
+      border-color: #22c55e;
+      box-shadow: 0 0 60px #22c55e, 0 0 120px #4ade80;
+      animation: greenGlow 1.5s ease-in-out infinite;
+    }
+
+    @keyframes greenGlow {
+      0%, 100% { box-shadow: 0 0 40px #22c55e, 0 0 80px #4ade80; }
+      50% { box-shadow: 0 0 70px #4ade80, 0 0 140px #86efac; }
+    }
+
+    /* Эффект тёмно-фиолетового */
+    .effect-dark-purple .player-card:not(.flipped) .player-image {
+      border-color: #6b21a8;
+      box-shadow: 0 0 60px #6b21a8, 0 0 120px #7c3aed;
+      animation: darkPurpleGlow 1.5s ease-in-out infinite;
+    }
+
+    @keyframes darkPurpleGlow {
+      0%, 100% { box-shadow: 0 0 40px #6b21a8, 0 0 80px #7c3aed; }
+      50% { box-shadow: 0 0 70px #7c3aed, 0 0 140px #8b5cf6; }
+    }
+
+    /* Эффект светло-серого */
+    .effect-light-gray .player-card:not(.flipped) .player-image {
+      border-color: #d1d5db;
+      box-shadow: 0 0 60px #d1d5db, 0 0 120px #e5e7eb;
+      animation: lightGrayGlow 1.5s ease-in-out infinite;
+    }
+
+    @keyframes lightGrayGlow {
+      0%, 100% { box-shadow: 0 0 40px #d1d5db, 0 0 80px #e5e7eb; }
+      50% { box-shadow: 0 0 70px #e5e7eb, 0 0 140px #f3f4f6; }
+    }
+
+    /* Эффект тёмно-зелёного */
+    .effect-dark-green .player-card:not(.flipped) .player-image {
+      border-color: #15803d;
+      box-shadow: 0 0 60px #15803d, 0 0 120px #16a34a;
+      animation: darkGreenGlow 1.5s ease-in-out infinite;
+    }
+
+    @keyframes darkGreenGlow {
+      0%, 100% { box-shadow: 0 0 40px #15803d, 0 0 80px #16a34a; }
+      50% { box-shadow: 0 0 70px #16a34a, 0 0 140px #22c55e; }
+    }
+
+    /* Подсветка карточки при наведении */
+    .player-card-wrapper:hover .player-card:not(.flipped) {
+      filter: brightness(1.2);
+    }
+
+    /* Общая подсветка */
+    .player-card-wrapper:hover .player-card:not(.flipped) .player-card-front {
+      border-color: rgba(255, 130, 70, 0.7);
+      box-shadow: 0 0 40px rgba(255, 100, 50, 0.3);
+    }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 30px 0;
+      margin-top: 50px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .guidebox {
+      background: rgba(30, 12, 5, 0.85);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      color: #e8c4b0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.95rem;
+      white-space: pre-wrap;
+      max-height: 55vh;
+      overflow-y: auto;
+    }
+
     .modal {
       display: none;
       position: fixed;
@@ -497,22 +569,19 @@
 
     .modal.open {
       display: flex;
-      animation: fadeIn 0.3s ease;
     }
 
     .modalbox {
       background: #1a0d05;
-      border: 1px solid var(--border-strong);
+      border: 1px solid rgba(255, 130, 70, 0.55);
       border-radius: var(--radius);
       padding: 35px;
       max-width: 850px;
       width: 100%;
       max-height: 85vh;
       overflow-y: auto;
-      box-shadow: 0 40px 100px rgba(60, 15, 0, 0.8);
     }
 
-    /* Тост */
     .toasts {
       position: fixed;
       bottom: 30px;
@@ -525,52 +594,17 @@
 
     .toast {
       background: #1a0d05;
-      border: 1px solid var(--accent);
+      border: 1px solid #ff6b2b;
       color: var(--text);
       padding: 16px 24px;
       border-radius: 14px;
       font-weight: 600;
-      box-shadow: 0 15px 40px rgba(60, 15, 0, 0.7);
       animation: slideIn 0.35s ease;
-    }
-
-    .guidebox {
-      background: rgba(30, 12, 5, 0.85);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 24px;
-      color: #e8c4b0;
-      font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
-      font-size: 0.95rem;
-      white-space: pre-wrap;
-      max-height: 55vh;
-      overflow-y: auto;
-    }
-
-    .footer {
-      border-top: 1px solid var(--border);
-      padding: 40px 0;
-      margin-top: 60px;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-
-    .footer-grid {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 25px;
-      flex-wrap: wrap;
-    }
-
-    @keyframes glow {
-      0%, 100% { box-shadow: 0 0 25px rgba(255, 100, 50, 0.35); }
-      50% { box-shadow: 0 0 50px rgba(255, 150, 0, 0.55); }
     }
 
     @keyframes pulse-dot {
       0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.6); opacity: 0.6; }
+      50% { transform: scale(1.5); opacity: 0.6; }
     }
 
     @keyframes fadeIn {
@@ -603,10 +637,17 @@
       .nav { position: relative; flex-wrap: wrap; }
       .hero {
         grid-template-columns: 1fr;
-        padding: 50px 0 40px;
+        padding: 40px 0 30px;
       }
-      .server-panel {
-        order: -1;
+      .players-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+      .player-card {
+        height: 380px;
+      }
+      .player-image {
+        width: 160px;
+        height: 160px;
       }
     }
   </style>
@@ -624,6 +665,7 @@
       <button class="hamb" id="hamb" aria-label="Меню">☰</button>
       <nav class="links" id="navLinks">
         <button class="navbtn active" data-route="home">Главная</button>
+        <button class="navbtn" data-route="players">Игроки</button>
         <button class="navbtn" data-route="connect">Подключение</button>
         <button class="navbtn" data-route="about">О сервере</button>
         <a class="navbtn tg" href="https://t.me/BL_Mods" target="_blank" rel="noopener">Telegram ↗</a>
@@ -658,53 +700,47 @@
           <div class="row">
             <button class="btn primary copy-btn" id="copyIp">СКОПИРОВАТЬ IP</button>
             <button class="btn secondary" data-go="connect">ИНСТРУКЦИЯ</button>
-            <a class="btn dark" href="https://tailscale.com/download" target="_blank" rel="noopener">TAILSCALE</a>
+            <a class="btn" href="https://tailscale.com/download" target="_blank" rel="noopener">TAILSCALE</a>
           </div>
         </div>
       </div>
-      <div class="grid">
-        <div class="card">
-          <span class="icon">⚡</span>
-          <h3>Tailscale</h3>
-          <p>Сервер доступен через приватную сеть Tailscale. Перед входом установите клиент и следуйте инструкции подключения.</p>
-          <button class="btn dark" data-go="connect">Инструкция</button>
-        </div>
-        <div class="card">
-          <span class="icon">💬</span>
-          <h3>Сообщество</h3>
-          <p>Новости, сборка и объявления — в официальном Telegram-канале.</p>
-          <a class="btn primary" href="https://t.me/BL_Mods" target="_blank" rel="noopener">TELEGRAM-КАНАЛ</a>
-        </div>
+    </section>
+
+    <section id="players" class="section">
+      <h2>Игроки сервера</h2>
+      <p style="color: var(--text-muted); margin-bottom: 20px;">Наведи курсор на карточку, чтобы увидеть эффект. Нажми, чтобы перевернуть.</p>
+      <div class="players-grid" id="playersGrid">
+        <!-- Карточки будут добавлены через JavaScript -->
       </div>
     </section>
 
     <section id="connect" class="section">
       <h2>Как подключиться</h2>
-      <div class="card">
-        <div class="notice" style="margin-bottom: 25px;">⚡ Для подключения требуется Tailscale</div>
-        <div class="row" style="margin-bottom: 30px;">
+      <div style="background: linear-gradient(145deg, rgba(60, 25, 12, 0.7), rgba(30, 12, 5, 0.9)); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px;">
+        <div class="notice" style="margin-bottom: 20px;">⚡ Для подключения требуется Tailscale</div>
+        <div class="row" style="margin-bottom: 25px;">
           <button class="btn primary copy-btn">СКОПИРОВАТЬ IP</button>
           <a class="btn secondary" href="https://tailscale.com/download" target="_blank" rel="noopener">СКАЧАТЬ TAILSCALE</a>
-          <a class="btn dark" href="https://t.me/BL_Mods" target="_blank" rel="noopener">Помощь в Telegram</a>
+          <a class="btn" href="https://t.me/BL_Mods" target="_blank" rel="noopener">Помощь в Telegram</a>
         </div>
-        <h3 style="color: #e8c4b0; margin-bottom: 20px;">Инструкция</h3>
+        <h3 style="color: #e8c4b0; margin-bottom: 15px;">Инструкция</h3>
         <div id="guide" class="guidebox">Загрузка инструкции...</div>
       </div>
     </section>
 
     <section id="about" class="section">
       <h2>О сервере</h2>
-      <div class="grid" style="margin-top: 0;">
-        <div class="card">
-          <span class="icon">🌲</span>
-          <h3>Бренленд</h3>
-          <p>Атмосферный Minecraft-проект с собственной историей, событиями, модами и постепенным развитием мира.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
+        <div style="background: linear-gradient(145deg, rgba(50, 20, 10, 0.55), rgba(20, 8, 3, 0.9)); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px;">
+          <span style="font-size: 2.5rem;">🌲</span>
+          <h3 style="margin: 10px 0;">Бренленд</h3>
+          <p style="color: var(--text-muted);">Атмосферный Minecraft-проект с собственной историей, событиями, модами и постепенным развитием мира.</p>
         </div>
-        <div class="card">
-          <span class="icon">🔐</span>
-          <h3>Приватное подключение</h3>
-          <p>Вход выполняется через Tailscale. Это важная часть инфраструктуры БЛ, поэтому IP не предназначен для обычного прямого подключения.</p>
-          <button class="btn secondary" data-go="connect">КАК ПОДКЛЮЧИТЬСЯ</button>
+        <div style="background: linear-gradient(145deg, rgba(50, 20, 10, 0.55), rgba(20, 8, 3, 0.9)); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px;">
+          <span style="font-size: 2.5rem;">🔐</span>
+          <h3 style="margin: 10px 0;">Приватное подключение</h3>
+          <p style="color: var(--text-muted);">Вход выполняется через Tailscale. Это важная часть инфраструктуры БЛ.</p>
+          <button class="btn secondary" data-go="connect" style="margin-top: 15px;">КАК ПОДКЛЮЧИТЬСЯ</button>
         </div>
       </div>
     </section>
@@ -713,33 +749,73 @@
   <footer class="footer">
     <div class="wrap footer-grid">
       <div><strong>БРЕНЛЕНД</strong><br>Minecraft Server<br>© 2026</div>
-      <div>Следи за новостями и скачивай сборку:<br><a class="btn secondary" href="https://t.me/BL_Mods" target="_blank" rel="noopener" style="margin-top: 12px;">Telegram</a></div>
+      <div>Следи за новостями:<br><a class="btn secondary" href="https://t.me/BL_Mods" target="_blank" rel="noopener" style="margin-top: 10px;">Telegram</a></div>
     </div>
   </footer>
 
-  <div id="modal" class="modal">
-    <div class="modalbox">
-      <button class="btn" onclick="closeModal()" style="margin-bottom: 25px;">← Закрыть</button>
-      <div id="modalContent"></div>
-    </div>
-  </div>
   <div class="toasts" id="toasts"></div>
 
   <script>
     (function() {
+      const players = [
+        {
+          name: 'Xsioder',
+          image: 'Xsioder.png',
+          description: 'Создатель сервера. Игрок придумавший лор к Бренленду и основатель всей вселенной BL',
+          quote: 'Грибы Грибочки!',
+          effectClass: 'effect-fire'
+        },
+        {
+          name: 'AvraiRut',
+          image: 'AvraiRut.png',
+          description: 'Главный и единственный тех.админ Бренленда. Весёлый и забавный игрок помогающий другим игрокам разобраться в модах',
+          quote: 'Пошёл вон! (без сексуального подтекста)',
+          effectClass: 'effect-purple'
+        },
+        {
+          name: 'FunDreamer',
+          image: 'FunDreamer.png',
+          description: 'Создатель этого сайта и просто забавный игрок сервера. Добрейший на сервере',
+          quote: 'Дважды подумай прежде чем писать мне!',
+          effectClass: 'effect-green'
+        },
+        {
+          name: 'Flanalla',
+          image: 'Flanalla.png',
+          description: 'Единственная девушка на сервере которая может помочь в случае чего',
+          quote: 'Не мы такие, жизнь такая',
+          effectClass: 'effect-dark-purple'
+        },
+        {
+          name: 'Vova',
+          image: 'Vova.png',
+          description: 'Обычный игрок разбирающийся в механизмах и изучающий электричество через майнкрафт',
+          quote: 'Ох Никола Тесла...',
+          effectClass: 'effect-light-gray'
+        },
+        {
+          name: 'Abibek',
+          image: 'Abibek.png',
+          description: 'Неплохой игрок',
+          quote: 'Увы',
+          effectClass: 'effect-dark-green'
+        }
+      ];
+
       const state = {
         server: {
           display: '100.109.53.40:25565',
-          ip: '100.109.53.40',
-          port: 25565,
           connection_guide: 'connection-guide.txt',
-          requires_tailscale: true,
           telegram_url: 'https://t.me/BL_Mods'
         }
       };
 
       const $ = s => document.querySelector(s);
       const $$ = s => [...document.querySelectorAll(s)];
+
+      function esc(s = '') {
+        return String(s).replace(/[&<>'"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[m]));
+      }
 
       function toast(t) {
         const el = document.createElement('div');
@@ -758,15 +834,46 @@
           const r = await fetch(p + '?v=' + Date.now(), { cache: 'no-store' });
           if (!r.ok) throw Error(r.status);
           return await r.text();
-        } catch (e) { return 'Инструкция подключения пока недоступна. Проверьте путь connection_guide в data/server.json или откройте Telegram Бренленда.'; }
+        } catch (e) { return 'Инструкция подключения пока недоступна. Проверьте путь connection_guide или откройте Telegram Бренленда.'; }
       }
+
+      function renderPlayers() {
+        const grid = $('#playersGrid');
+        grid.innerHTML = players.map((player, index) => `
+          <div class="player-card-wrapper ${player.effectClass}" style="animation: fadeIn 0.5s ease ${index * 0.1}s both;">
+            <div class="player-card" id="playerCard-${index}" onclick="flipCard(${index})">
+              <div class="player-card-face player-card-front">
+                <div class="player-image-container">
+                  <img src="${esc(player.image)}" alt="${esc(player.name)}" class="player-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="player-image-fallback" style="display:none; width:200px; height:200px; border-radius:50%; background: linear-gradient(135deg, #ff6b2b, #ff9500); align-items:center; justify-content:center; font-size:3rem; font-weight:900; color:#fff;">
+                    ${esc(player.name.charAt(0))}
+                  </div>
+                </div>
+                <div class="player-info">
+                  <div class="player-name">${esc(player.name)}</div>
+                  <div class="player-description">${esc(player.description)}</div>
+                </div>
+              </div>
+              <div class="player-card-face player-card-back">
+                <div class="player-quote-mark">"</div>
+                <div class="player-quote">${esc(player.quote)}</div>
+                <div class="player-quote-mark" style="margin-top:15px;">"</div>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      window.flipCard = function(index) {
+        const card = $('#playerCard-' + index);
+        if (card) {
+          card.classList.toggle('flipped');
+        }
+      };
 
       function render() {
-        $('#serverIp').textContent = state.server.display || `${state.server.ip}:${state.server.port || 25565}`;
-      }
-
-      function serverStatus() {
-        $('#statusText').textContent = 'Онлайн';
+        $('#serverIp').textContent = state.server.display || '100.109.53.40:25565';
+        renderPlayers();
       }
 
       async function loadGuide() {
@@ -774,13 +881,10 @@
         box.textContent = await loadText(state.server.connection_guide || 'connection-guide.txt');
       }
 
-      window.closeModal = function() {
-        $('#modal').classList.remove('open');
-      };
-
       window.route = function(r) {
         $$('.section').forEach(s => s.classList.remove('active'));
-        $('#' + r).classList.add('active');
+        const section = $('#' + r);
+        if (section) section.classList.add('active');
         $$('[data-route]').forEach(b => b.classList.toggle('active', b.dataset.route === r));
         location.hash = r;
         $('#navLinks').classList.remove('open');
@@ -800,13 +904,11 @@
       $$('.copy-btn').forEach(b => b.onclick = () => copyIp());
       $('#serverIp').onclick = () => copyIp();
       $('#hamb').onclick = () => $('#navLinks').classList.toggle('open');
-      $('#modal').onclick = e => { if (e.target.id === 'modal') closeModal(); };
-      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
       (async () => {
         render();
         loadGuide();
-        serverStatus();
+        $('#statusText').textContent = 'Онлайн';
         const h = location.hash.slice(1);
         if (h && $('#' + h)) route(h);
       })();

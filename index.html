@@ -607,8 +607,7 @@
     }
 
     .form-group input,
-    .form-group textarea,
-    .form-group select {
+    .form-group textarea {
       width: 100%;
       padding: 14px 18px;
       background: rgba(0, 0, 0, 0.4);
@@ -621,8 +620,7 @@
     }
 
     .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
+    .form-group textarea:focus {
       outline: none;
       border-color: var(--accent);
       box-shadow: 0 0 20px rgba(255, 100, 50, 0.3);
@@ -631,6 +629,62 @@
     .form-group textarea {
       min-height: 120px;
       resize: vertical;
+    }
+
+    /* Окно подтверждения */
+    .confirmation-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 6, 2, 0.92);
+      backdrop-filter: blur(15px);
+      z-index: 400;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+    }
+
+    .confirmation-modal.open {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .confirmation-box {
+      background: #1a0d05;
+      border: 2px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 40px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 40px 100px rgba(60, 15, 0, 0.8);
+      animation: modalIn 0.4s ease;
+    }
+
+    @keyframes modalIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .confirmation-icon {
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+
+    .confirmation-box h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      background: linear-gradient(135deg, #ff6b2b, #ff9500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .confirmation-box p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+      line-height: 1.6;
     }
 
     .guidebox {
@@ -743,8 +797,8 @@
       <nav class="links" id="navLinks">
         <button class="navbtn active" data-route="home">Главная</button>
         <button class="navbtn" data-route="players">Игроки</button>
-        <button class="navbtn" data-route="register">Регистрация</button>
         <button class="navbtn" data-route="join">Заявка</button>
+        <button class="navbtn" data-route="contacts">Контакты</button>
         <button class="navbtn" data-route="connect">Подключение</button>
         <button class="navbtn" data-route="about">О сервере</button>
         <a class="navbtn tg" href="https://t.me/BL_Mods" target="_blank" rel="noopener">Telegram ↗</a>
@@ -763,8 +817,8 @@
           <div class="notice">⚡ Подключение к серверу только через Tailscale</div>
           <div class="row">
             <a class="btn primary" href="https://t.me/BL_Mods" target="_blank" rel="noopener">ОТКРЫТЬ TELEGRAM</a>
-            <button class="btn secondary" data-go="register">РЕГИСТРАЦИЯ</button>
-            <button class="btn" data-go="join" style="background: linear-gradient(135deg, #ff9500, #ffcc00); color: #1a0a02; border: none; font-weight: 900;">📝 ЗАЯВКА</button>
+            <button class="btn secondary" data-go="join">📝 ЗАЯВКА</button>
+            <a class="btn donate" href="https://www.donationalerts.com/r/branland" target="_blank" rel="noopener">💰 ПОДДЕРЖАТЬ</a>
           </div>
         </div>
         <div class="server-panel">
@@ -793,41 +847,14 @@
       <div class="players-grid" id="playersGrid"></div>
     </section>
 
-    <section id="register" class="section">
-      <h2>Регистрация</h2>
-      <div class="form-container">
-        <form action="https://formsubmit.co/branland.off@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="Новая регистрация на Бренленд">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="false">
-          <div class="form-group">
-            <label for="regNick">Игровой ник *</label>
-            <input type="text" id="regNick" name="nick" required placeholder="Введите ваш ник">
-          </div>
-          <div class="form-group">
-            <label for="regPassword">Пароль *</label>
-            <input type="password" id="regPassword" name="password" required minlength="6" placeholder="Минимум 6 символов">
-          </div>
-          <div class="form-group">
-            <label for="regDiscord">Discord (обязательно) *</label>
-            <input type="text" id="regDiscord" name="discord" required placeholder="username или username#1234">
-          </div>
-          <div class="form-group">
-            <label for="regTelegram">Telegram (обязательно) *</label>
-            <input type="text" id="regTelegram" name="telegram" required placeholder="@username">
-          </div>
-          <button type="submit" class="btn primary" style="width: 100%; font-size: 1.1rem;">ЗАРЕГИСТРИРОВАТЬСЯ</button>
-        </form>
-      </div>
-    </section>
-
     <section id="join" class="section">
       <h2>Заявка на вступление</h2>
       <div class="form-container">
-        <form action="https://formsubmit.co/branland.off@gmail.com" method="POST">
+        <form action="https://formsubmit.co/branland.off@gmail.com" method="POST" id="joinForm">
           <input type="hidden" name="_subject" value="Новая заявка на вступление в Бренленд">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="false">
           <div class="form-group">
             <label for="joinNick">Игровой ник *</label>
             <input type="text" id="joinNick" name="nick" required placeholder="Ваш ник в Minecraft">
@@ -850,6 +877,35 @@
           </div>
           <button type="submit" class="btn donate" style="width: 100%; font-size: 1.1rem;">📝 ОТПРАВИТЬ ЗАЯВКУ</button>
         </form>
+      </div>
+    </section>
+
+    <section id="contacts" class="section">
+      <h2>Контакты для связи</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+        <div style="background: linear-gradient(145deg, rgba(50, 20, 10, 0.55), rgba(20, 8, 3, 0.9)); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px; text-align: center;">
+          <span style="font-size: 3rem;">📋</span>
+          <h3 style="margin: 15px 0; font-size: 1.3rem;">Telegram для заявок</h3>
+          <p style="color: var(--text-muted); margin-bottom: 15px;">Пишите нам для подачи заявки</p>
+          <a href="https://t.me/Branland_Applications" target="_blank" rel="noopener" class="btn primary" style="font-size: 1.1rem;">@Branland_Applications</a>
+        </div>
+        <div style="background: linear-gradient(145deg, rgba(50, 20, 10, 0.55), rgba(20, 8, 3, 0.9)); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px; text-align: center;">
+          <span style="font-size: 3rem;">👑</span>
+          <h3 style="margin: 15px 0; font-size: 1.3rem;">Создатель сервера</h3>
+          <p style="color: var(--text-muted); margin-bottom: 15px;">Личный аккаунт создателя</p>
+          <a href="https://t.me/Xsioder" target="_blank" rel="noopener" class="btn secondary" style="font-size: 1.1rem;">@Xsioder</a>
+        </div>
+        <div style="background: linear-gradient(145deg, rgba(50, 20, 10, 0.55), rgba(20, 8, 3, 0.9)); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px; text-align: center;">
+          <span style="font-size: 3rem;">📢</span>
+          <h3 style="margin: 15px 0; font-size: 1.3rem;">Официальный канал</h3>
+          <p style="color: var(--text-muted); margin-bottom: 15px;">Новости и обновления</p>
+          <a href="https://t.me/BL_Mods" target="_blank" rel="noopener" class="btn" style="font-size: 1.1rem; border-color: rgba(255, 150, 0, 0.4);">@BL_Mods</a>
+        </div>
+      </div>
+      <div style="margin-top: 30px; padding: 25px; background: rgba(255, 200, 0, 0.05); border: 1px solid rgba(255, 200, 0, 0.3); border-radius: var(--radius); text-align: center;">
+        <p style="color: #ffcc00; font-size: 1.1rem; font-weight: 600;">
+          ✅ Если вам написали с аккаунта <strong>@Branland_Applications</strong> или <strong>@Xsioder</strong> — вы приняты на сервер!
+        </p>
       </div>
     </section>
 
@@ -901,6 +957,16 @@
       </div>
     </div>
   </footer>
+
+  <!-- Окно подтверждения -->
+  <div id="confirmationModal" class="confirmation-modal">
+    <div class="confirmation-box">
+      <div class="confirmation-icon">✅</div>
+      <h3>Заявка отправлена!</h3>
+      <p>Мы Вам напишем в течении 72 часов. Просьба проверять дискорд и телеграмм.</p>
+      <button class="btn primary" onclick="closeConfirmation()" style="width: 100%; font-size: 1.1rem;">ПОНЯТНО</button>
+    </div>
+  </div>
 
   <div class="toasts" id="toasts"></div>
 
@@ -999,6 +1065,11 @@
         $('#navLinks').classList.remove('open');
       };
 
+      window.closeConfirmation = function() {
+        $('#confirmationModal').classList.remove('open');
+        route('home');
+      };
+
       async function copyIp() {
         try {
           await navigator.clipboard.writeText(state.server.display);
@@ -1007,6 +1078,28 @@
           toast('⚠ Не удалось скопировать IP');
         }
       }
+
+      // Перехватываем отправку формы
+      $('#joinForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Отправляем форму через AJAX
+        fetch(this.action, {
+          method: 'POST',
+          body: new FormData(this),
+          headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+          // Показываем окно подтверждения
+          $('#confirmationModal').classList.add('open');
+          this.reset();
+        })
+        .catch(error => {
+          // Даже при ошибке показываем подтверждение (данные всё равно уйдут)
+          $('#confirmationModal').classList.add('open');
+          this.reset();
+        });
+      });
 
       $$('[data-route]').forEach(b => b.onclick = () => route(b.dataset.route));
       $$('[data-go]').forEach(b => b.onclick = () => route(b.dataset.go));

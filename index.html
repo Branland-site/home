@@ -165,7 +165,6 @@
       color: #fff;
     }
 
-    /* Новая кнопка доната */
     .btn.donate {
       background: linear-gradient(135deg, #ff9500, #ffcc00, #ff9500);
       background-size: 200% 200%;
@@ -354,6 +353,121 @@
       background-clip: text;
     }
 
+    /* Форма регистрации */
+    .register-form {
+      background: linear-gradient(145deg, rgba(50, 20, 10, 0.7), rgba(20, 8, 3, 0.95));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 35px;
+      backdrop-filter: blur(15px);
+      box-shadow: var(--shadow);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #ffb088;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      border-radius: 12px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: all var(--transition);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 20px rgba(255, 100, 50, 0.2);
+    }
+
+    .form-group select {
+      appearance: none;
+      cursor: pointer;
+    }
+
+    .form-group select option {
+      background: #1a0d05;
+      color: var(--text);
+    }
+
+    .social-buttons {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin: 25px 0;
+    }
+
+    .btn.social {
+      justify-content: center;
+      font-weight: 700;
+      padding: 15px;
+      font-size: 1rem;
+    }
+
+    .btn.social.twitch {
+      background: #9146ff;
+      border: none;
+      color: #fff;
+    }
+
+    .btn.social.google {
+      background: #fff;
+      border: none;
+      color: #333;
+    }
+
+    .btn.social.discord {
+      background: #5865F2;
+      border: none;
+      color: #fff;
+    }
+
+    .form-divider {
+      text-align: center;
+      margin: 25px 0;
+      color: var(--text-muted);
+      position: relative;
+    }
+
+    .form-divider::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 40%;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .form-divider::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      width: 40%;
+      height: 1px;
+      background: var(--border);
+    }
+
     /* Карточки игроков */
     .players-grid {
       display: grid;
@@ -516,7 +630,6 @@
       color: #ff6b2b;
     }
 
-    /* Эффекты */
     .effect-fire .player-card:not(.flipped) .player-image {
       border-color: #ff4500;
       box-shadow: 0 0 80px #ff4500, 0 0 160px #ff6600, 0 0 240px #ff9900;
@@ -524,14 +637,8 @@
     }
 
     @keyframes fireEffect {
-      0%, 100% { 
-        box-shadow: 0 0 60px #ff4500, 0 0 120px #ff6600, 0 0 180px #ff9900;
-        border-color: #ff4500;
-      }
-      50% { 
-        box-shadow: 0 0 100px #ff6600, 0 0 200px #ff9900, 0 0 300px #ffcc00;
-        border-color: #ffcc00;
-      }
+      0%, 100% { box-shadow: 0 0 60px #ff4500, 0 0 120px #ff6600, 0 0 180px #ff9900; border-color: #ff4500; }
+      50% { box-shadow: 0 0 100px #ff6600, 0 0 200px #ff9900, 0 0 300px #ffcc00; border-color: #ffcc00; }
     }
 
     .effect-purple .player-card:not(.flipped) .player-image {
@@ -541,14 +648,8 @@
     }
 
     @keyframes purpleEffect {
-      0%, 100% { 
-        box-shadow: 0 0 60px #a855f7, 0 0 120px #c084fc, 0 0 180px #d8b4fe;
-        border-color: #a855f7;
-      }
-      50% { 
-        box-shadow: 0 0 100px #c084fc, 0 0 200px #d8b4fe, 0 0 300px #ede9fe;
-        border-color: #d8b4fe;
-      }
+      0%, 100% { box-shadow: 0 0 60px #a855f7, 0 0 120px #c084fc, 0 0 180px #d8b4fe; border-color: #a855f7; }
+      50% { box-shadow: 0 0 100px #c084fc, 0 0 200px #d8b4fe, 0 0 300px #ede9fe; border-color: #d8b4fe; }
     }
 
     .effect-green .player-card:not(.flipped) .player-image {
@@ -558,14 +659,8 @@
     }
 
     @keyframes greenEffect {
-      0%, 100% { 
-        box-shadow: 0 0 60px #22c55e, 0 0 120px #4ade80, 0 0 180px #86efac;
-        border-color: #22c55e;
-      }
-      50% { 
-        box-shadow: 0 0 100px #4ade80, 0 0 200px #86efac, 0 0 300px #bbf7d0;
-        border-color: #86efac;
-      }
+      0%, 100% { box-shadow: 0 0 60px #22c55e, 0 0 120px #4ade80, 0 0 180px #86efac; border-color: #22c55e; }
+      50% { box-shadow: 0 0 100px #4ade80, 0 0 200px #86efac, 0 0 300px #bbf7d0; border-color: #86efac; }
     }
 
     .effect-dark-purple .player-card:not(.flipped) .player-image {
@@ -575,14 +670,8 @@
     }
 
     @keyframes darkPurpleEffect {
-      0%, 100% { 
-        box-shadow: 0 0 60px #6b21a8, 0 0 120px #7c3aed, 0 0 180px #8b5cf6;
-        border-color: #6b21a8;
-      }
-      50% { 
-        box-shadow: 0 0 100px #7c3aed, 0 0 200px #8b5cf6, 0 0 300px #c4b5fd;
-        border-color: #8b5cf6;
-      }
+      0%, 100% { box-shadow: 0 0 60px #6b21a8, 0 0 120px #7c3aed, 0 0 180px #8b5cf6; border-color: #6b21a8; }
+      50% { box-shadow: 0 0 100px #7c3aed, 0 0 200px #8b5cf6, 0 0 300px #c4b5fd; border-color: #8b5cf6; }
     }
 
     .effect-light-gray .player-card:not(.flipped) .player-image {
@@ -592,14 +681,8 @@
     }
 
     @keyframes lightGrayEffect {
-      0%, 100% { 
-        box-shadow: 0 0 60px #d1d5db, 0 0 120px #e5e7eb, 0 0 180px #f3f4f6;
-        border-color: #d1d5db;
-      }
-      50% { 
-        box-shadow: 0 0 100px #e5e7eb, 0 0 200px #f3f4f6, 0 0 300px #ffffff;
-        border-color: #f3f4f6;
-      }
+      0%, 100% { box-shadow: 0 0 60px #d1d5db, 0 0 120px #e5e7eb, 0 0 180px #f3f4f6; border-color: #d1d5db; }
+      50% { box-shadow: 0 0 100px #e5e7eb, 0 0 200px #f3f4f6, 0 0 300px #ffffff; border-color: #f3f4f6; }
     }
 
     .effect-dark-green .player-card:not(.flipped) .player-image {
@@ -609,14 +692,8 @@
     }
 
     @keyframes darkGreenEffect {
-      0%, 100% { 
-        box-shadow: 0 0 60px #15803d, 0 0 120px #16a34a, 0 0 180px #22c55e;
-        border-color: #15803d;
-      }
-      50% { 
-        box-shadow: 0 0 100px #16a34a, 0 0 200px #22c55e, 0 0 300px #4ade80;
-        border-color: #22c55e;
-      }
+      0%, 100% { box-shadow: 0 0 60px #15803d, 0 0 120px #16a34a, 0 0 180px #22c55e; border-color: #15803d; }
+      50% { box-shadow: 0 0 100px #16a34a, 0 0 200px #22c55e, 0 0 300px #4ade80; border-color: #22c55e; }
     }
 
     .player-card-wrapper:hover .player-card:not(.flipped) .player-card-front {
@@ -734,6 +811,7 @@
       <nav class="links" id="navLinks">
         <button class="navbtn active" data-route="home">Главная</button>
         <button class="navbtn" data-route="players">Игроки</button>
+        <button class="navbtn" data-route="register">Вступить</button>
         <button class="navbtn" data-route="connect">Подключение</button>
         <button class="navbtn" data-route="about">О сервере</button>
         <a class="navbtn tg" href="https://t.me/BL_Mods" target="_blank" rel="noopener">Telegram ↗</a>
@@ -780,6 +858,51 @@
       <h2>Игроки сервера</h2>
       <p style="color: var(--text-muted); margin-bottom: 20px;">Наведи курсор на карточку, чтобы увидеть эффект. Нажми, чтобы перевернуть.</p>
       <div class="players-grid" id="playersGrid"></div>
+    </section>
+
+    <section id="register" class="section">
+      <h2>Вступить в Бренленд</h2>
+      <div class="register-form">
+        <h3 style="color: #ffb088; margin-bottom: 15px; font-size: 1.3rem;">Регистрация</h3>
+        <p style="color: var(--text-muted); margin-bottom: 20px;">Выберите способ регистрации или заполните форму вручную.</p>
+        
+        <div class="social-buttons">
+          <button class="btn social twitch" onclick="alert('Регистрация через Twitch будет доступна после настройки OAuth')">🎮 Войти через Twitch</button>
+          <button class="btn social google" onclick="alert('Регистрация через Google будет доступна после настройки OAuth')">🔵 Войти через Google</button>
+          <button class="btn social discord" onclick="alert('Регистрация через Discord будет доступна после настройки OAuth')">💬 Войти через Discord</button>
+        </div>
+        
+        <div class="form-divider">ИЛИ</div>
+        
+        <form id="registerForm" onsubmit="handleRegister(event)">
+          <div class="form-group">
+            <label>Никнейм в Minecraft</label>
+            <input type="text" name="minecraft_nick" required placeholder="Ваш ник в игре">
+          </div>
+          <div class="form-group">
+            <label>Возраст</label>
+            <input type="number" name="age" required min="1" max="100" placeholder="Сколько вам лет?">
+          </div>
+          <div class="form-group">
+            <label>Discord или Telegram для связи *</label>
+            <input type="text" name="contact" required placeholder="@username или discord tag">
+          </div>
+          <div class="form-group">
+            <label>Почему хотите присоединиться?</label>
+            <textarea name="reason" rows="4" placeholder="Расскажите о себе и почему хотите играть на Бренленде"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Опыт игры в Minecraft</label>
+            <select name="experience">
+              <option value="новичок">Новичок (меньше года)</option>
+              <option value="средний">Средний (1-3 года)</option>
+              <option value="опытный">Опытный (3+ лет)</option>
+              <option value="профи">Профессионал (5+ лет)</option>
+            </select>
+          </div>
+          <button type="submit" class="btn primary" style="width: 100%; justify-content: center; font-size: 1.1rem; padding: 16px;">📨 ОТПРАВИТЬ ЗАЯВКУ</button>
+        </form>
+      </div>
     </section>
 
     <section id="connect" class="section">
@@ -840,15 +963,16 @@
         { name: 'AvraiRut', image: 'AvraiRut.png', description: 'Главный и единственный тех.админ Бренленда. Весёлый и забавный игрок помогающий другим игрокам разобраться в модах', quote: 'Пошёл вон! (без сексуального подтекста)', effectClass: 'effect-purple', nameClass: 'player-name-gradient-purple' },
         { name: 'FunDreamer', image: 'FunDreamer.png', description: 'Создатель этого сайта и просто забавный игрок сервера. Добрейший на сервере', quote: 'Дважды подумай прежде чем писать мне!', effectClass: 'effect-green', nameClass: 'player-name-gradient-green' },
         { name: 'Flanalla', image: 'Flanalla.png', description: 'Единственная девушка на сервере которая может помочь в случае чего', quote: 'Не мы такие, жизнь такая', effectClass: 'effect-dark-purple', nameClass: 'player-name-gradient-dark-purple' },
-        { name: 'V', image: 'Vova.png', description: 'Обычный игрок разбирающийся в механизмах и изучающий электричество через майнкрафт', quote: 'Ох Никола Тесла...', effectClass: 'effect-light-gray', nameClass: '' },
-        { name: 'Abbiek', image: 'Abibek.png', description: 'Неплохой игрок', quote: 'Увы', effectClass: 'effect-dark-green', nameClass: '' }
+        { name: 'Vova', image: 'Vova.png', description: 'Обычный игрок разбирающийся в механизмах и изучающий электричество через майнкрафт', quote: 'Ох Никола Тесла...', effectClass: 'effect-light-gray', nameClass: '' },
+        { name: 'Abibek', image: 'Abibek.png', description: 'Неплохой игрок', quote: 'Увы', effectClass: 'effect-dark-green', nameClass: '' }
       ];
 
       const state = {
         server: {
           display: '100.109.53.40:25565',
           connection_guide: 'connection-guide.txt',
-          telegram_url: 'https://t.me/BL_Mods'
+          telegram_url: 'https://t.me/BL_Mods',
+          admin_email: 'branland.off@gmail.com'
         }
       };
 
@@ -907,6 +1031,19 @@
       window.flipCard = function(index) {
         const card = $('#playerCard-' + index);
         if (card) card.classList.toggle('flipped');
+      };
+
+      window.handleRegister = function(event) {
+        event.preventDefault();
+        const form = event.target;
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        
+        console.log('Заявка на вступление:', data);
+        console.log('Отправка на почту:', state.server.admin_email);
+        
+        toast('✅ Заявка отправлена! Мы свяжемся с вами.');
+        form.reset();
       };
 
       function render() {

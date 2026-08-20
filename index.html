@@ -493,6 +493,20 @@
       50% { filter: drop-shadow(0 0 20px #7c3aed); }
     }
 
+    /* Новый синий эффект для Bounty */
+    .player-name-gradient-blue {
+      background: linear-gradient(135deg, #3b82f6, #60a5fa, #93c5fd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: blueGradient 2s ease-in-out infinite;
+    }
+
+    @keyframes blueGradient {
+      0%, 100% { filter: drop-shadow(0 0 8px #3b82f6); }
+      50% { filter: drop-shadow(0 0 20px #60a5fa); }
+    }
+
     .player-description {
       color: var(--text-muted);
       font-size: 0.95rem;
@@ -578,6 +592,18 @@
     @keyframes darkGreenEffect {
       0%, 100% { box-shadow: 0 0 60px #15803d, 0 0 120px #16a34a, 0 0 180px #22c55e; border-color: #15803d; }
       50% { box-shadow: 0 0 100px #16a34a, 0 0 200px #22c55e, 0 0 300px #4ade80; border-color: #22c55e; }
+    }
+
+    /* Синий эффект для Bounty */
+    .effect-blue .player-card:not(.flipped) .player-image {
+      border-color: #3b82f6;
+      box-shadow: 0 0 80px #3b82f6, 0 0 160px #60a5fa, 0 0 240px #93c5fd;
+      animation: blueEffect 1.5s ease-in-out infinite;
+    }
+
+    @keyframes blueEffect {
+      0%, 100% { box-shadow: 0 0 60px #3b82f6, 0 0 120px #60a5fa, 0 0 180px #93c5fd; border-color: #3b82f6; }
+      50% { box-shadow: 0 0 100px #60a5fa, 0 0 200px #93c5fd, 0 0 300px #bfdbfe; border-color: #93c5fd; }
     }
 
     .player-card-wrapper:hover .player-card:not(.flipped) .player-card-front {
@@ -831,12 +857,20 @@
           </div>
           <div class="ip-display" id="serverIp" title="Нажмите, чтобы скопировать">100.109.53.40:25565</div>
           <div class="hint">Подключение через Tailscale</div>
+          <!-- API статус -->
+          <div style="margin: 10px 0;">
+            <a href="https://minecraft-serverhub.com/servers?q=100.109.53.40%3A25565" title="Minecraft Server Status">
+              <img src="https://minecraft-serverhub.com/api/badge/100.109.53.40%3A25565?style=rounded&label=BranLand" alt="BranLand server status" />
+            </a>
+          </div>
           <div class="divider"></div>
           <div class="row">
             <button class="btn primary copy-btn" id="copyIp">СКОПИРОВАТЬ IP</button>
             <button class="btn secondary" data-go="connect">ИНСТРУКЦИЯ</button>
             <a class="btn" href="https://tailscale.com/download" target="_blank" rel="noopener">TAILSCALE</a>
           </div>
+          <!-- MC Status API -->
+          <div class="mc-status" data-mc-server="100.109.53.40:25565" style="margin-top: 15px; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 12px; font-size: 0.9rem;"></div>
         </div>
       </div>
     </section>
@@ -970,6 +1004,9 @@
 
   <div class="toasts" id="toasts"></div>
 
+  <!-- Скрипт для MC Status API -->
+  <script src="https://github.breq.dev/mcstatus/mcstatus.js"></script>
+
   <script>
     (function() {
       const players = [
@@ -977,9 +1014,9 @@
         { name: 'AvraiRut', image: 'AvraiRut.png', description: 'Главный и единственный тех.админ Бренленда. Весёлый и забавный игрок помогающий другим игрокам разобраться в модах', quote: 'Пошёл вон! (без сексуального подтекста)', effectClass: 'effect-purple', nameClass: 'player-name-gradient-purple' },
         { name: 'FunDreamer', image: 'FunDreamer.png', description: 'Создатель этого сайта и просто забавный игрок сервера. Добрейший на сервере', quote: 'Дважды подумай прежде чем писать мне!', effectClass: 'effect-green', nameClass: 'player-name-gradient-green' },
         { name: 'Flanalla', image: 'Flanalla.png', description: 'Единственная девушка на сервере которая может помочь в случае чего', quote: 'Не мы такие, жизнь такая', effectClass: 'effect-dark-purple', nameClass: 'player-name-gradient-dark-purple' },
-        { name: 'V', image: 'Vova.png', description: 'Обычный игрок разбирающийся в механизмах и изучающий электричество через майнкрафт', quote: 'Ох Никола Тесла...', effectClass: 'effect-light-gray', nameClass: '' },
-        { name: 'Abbiek', image: 'Abibek.png', description: 'Неплохой игрок', quote: 'Увы', effectClass: 'effect-dark-green', nameClass: '' },
-        { name: 'Bounty', image: 'Bounty.png', description: 'Повар сервера', quote: 'пошёл нахуй', effectClass: 'effect-blue', nameClass: '' }
+        { name: 'Vova', image: 'Vova.png', description: 'Обычный игрок разбирающийся в механизмах и изучающий электричество через майнкрафт', quote: 'Ох Никола Тесла...', effectClass: 'effect-light-gray', nameClass: '' },
+        { name: 'Abibek', image: 'Abibek.png', description: 'Неплохой игрок', quote: 'Увы', effectClass: 'effect-dark-green', nameClass: '' },
+        { name: 'Bounty', image: 'Bounty.png', description: 'Повар сервера', quote: 'пошёл нахуй', effectClass: 'effect-blue', nameClass: 'player-name-gradient-blue' }
       ];
 
       const state = {

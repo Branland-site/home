@@ -291,28 +291,6 @@
       color: #ff6b2b;
     }
 
-    .status-badge {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
-      background: rgba(255, 100, 50, 0.18);
-      border: 1px solid rgba(255, 100, 50, 0.5);
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 0.85rem;
-      color: #ffb088;
-    }
-
-    .status-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #ff6b2b;
-      box-shadow: 0 0 15px #ff6b2b;
-      animation: pulse-dot 1.8s ease-in-out infinite;
-    }
-
     .ip-display {
       font-size: clamp(1.3rem, 2.5vw, 1.8rem);
       font-weight: 800;
@@ -759,6 +737,18 @@
       animation: slideIn 0.35s ease;
     }
 
+    /* Vignette overlay */
+    #vignette {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      background: radial-gradient(circle at center, rgba(255,255,255,0) 30%, rgba(255,255,255,0.95) 100%);
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      border-radius: 0;
+    }
+
     @keyframes pulse-dot {
       0%, 100% { transform: scale(1); opacity: 1; }
       50% { transform: scale(1.5); opacity: 0.6; }
@@ -805,6 +795,9 @@
   </style>
 </head>
 <body>
+  <!-- Vignette overlay -->
+  <div id="vignette"></div>
+
   <header class="top">
     <div class="wrap nav">
       <a href="#" class="brand" onclick="route('home'); return false;">
@@ -847,10 +840,6 @@
         <div class="server-panel">
           <div class="server-header">
             <h3>СЕРВЕР</h3>
-            <div class="status-badge">
-              <div class="status-dot"></div>
-              <span id="statusText">Онлайн</span>
-            </div>
           </div>
           <div class="ip-display" id="serverIp" title="Нажмите, чтобы скопировать">100.109.53.40:25565</div>
           <div class="hint">Подключение через Tailscale</div>
@@ -860,7 +849,6 @@
             <button class="btn secondary" data-go="connect">ИНСТРУКЦИЯ</button>
             <a class="btn" href="https://tailscale.com/download" target="_blank" rel="noopener">TAILSCALE</a>
           </div>
-          <div class="mc-status" data-mc-server="100.109.53.40:25565" style="margin-top: 15px; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 12px; font-size: 0.9rem;"></div>
         </div>
       </div>
     </section>
@@ -1105,21 +1093,55 @@
         }
       }
 
-      // Секретное сочетание клавиш: Shift + X + 5
+      // --- Shift + X / Shift + Х logic (with vignette) ---
       let shiftPressed = false;
       let xPressed = false;
+      let vignetteCounter = 0;
+      const MAX_COUNTER = 5;
+      const vignette = document.getElementById('vignette');
+
+      function resetVignette() {
+        vignetteCounter = 0;
+        vignette.style.opacity = '0';
+        // also reset pressed states just in case
+        shiftPressed = false;
+        xPressed = false;
+      }
+
+      function updateVignette() {
+        const progress = Math.min(vignetteCounter / MAX_COUNTER, 1);
+        // opacity from 0 to 0.85 (so not fully blinding)
+        const opacity = progress * 0.85;
+        vignette.style.opacity = opacity;
+      }
 
       document.addEventListener('keydown', function(e) {
+        // Track Shift
         if (e.key === 'Shift') {
           shiftPressed = true;
+          return;
         }
+        // Track X or Х (cyrillic)
         if (e.key === 'X' || e.key === 'x' || e.key === 'Х' || e.key === 'х') {
           xPressed = true;
+          // If shift is also pressed, increment and handle
+          if (shiftPressed) {
+            e.preventDefault();
+            vignetteCounter++;
+            updateVignette();
+
+            if (vignetteCounter >= MAX_COUNTER) {
+              // reset vignette and redirect
+              resetVignette();
+              window.open('https://branland-site.github.io/-/', '_blank');
+            } else {
+              // optional: show toast for feedback (but not required)
+              // toast(`Виньетка: ${vignetteCounter}/${MAX_COUNTER}`);
+            }
+          }
+          return;
         }
-        if (e.key === '5' && shiftPressed && xPressed) {
-          e.preventDefault();
-          window.open('https://branland-site.github.io/-', '_blank');
-        }
+        // If any other key is pressed, we might want to reset? No, we keep state.
       });
 
       document.addEventListener('keyup', function(e) {
@@ -1129,7 +1151,13 @@
         if (e.key === 'X' || e.key === 'x' || e.key === 'Х' || e.key === 'х') {
           xPressed = false;
         }
+        // Optional: if both released, we could reset? But we keep counter.
       });
+
+      // Also reset if user clicks anywhere? Better not, keep as is.
+      // But we want to allow reset if user presses Escape? Not required.
+
+      // --- end vignette logic ---
 
       $('#joinForm').addEventListener('submit', function(e) {
         e.preventDefault();
@@ -1157,7 +1185,6 @@
       (async () => {
         render();
         loadGuide();
-        $('#statusText').textContent = 'Онлайн';
         const h = location.hash.slice(1);
         if (h && $('#' + h)) route(h);
       })();

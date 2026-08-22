@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#000000">
-  <title>БРЕНЛЕНД — Пятый</title>
+  <title>???</title>
   <style>
     :root {
       --bg: #000000;
@@ -63,7 +63,6 @@
       50% { opacity: 1; }
     }
 
-    /* 3D анимация оверлей */
     .animation-overlay {
       position: fixed;
       inset: 0;
@@ -124,7 +123,6 @@
       text-shadow: 0 0 20px rgba(255,0,0,0.8);
     }
 
-    /* Город */
     .city-building {
       position: absolute;
       bottom: 0;
@@ -134,7 +132,6 @@
       transition: all 0.5s;
     }
 
-    /* Персонажи */
     .fighter {
       position: absolute;
       width: 50px;
@@ -170,21 +167,6 @@
       font-size: 1.2rem;
     }
 
-    .sword {
-      position: absolute;
-      width: 4px;
-      height: 50px;
-      background: #ff0000;
-      box-shadow: 0 0 30px #ff0000;
-      transform-origin: bottom center;
-      transition: all 0.3s;
-    }
-
-    .sword.swing {
-      transform: rotate(120deg);
-      box-shadow: 0 0 60px #ff0000, 0 0 120px #ff6600;
-    }
-
     .explosion {
       position: absolute;
       width: 150px;
@@ -216,96 +198,96 @@
       100% { transform: rotate(180deg) scale(2); opacity: 0; }
     }
 
-    /* Лицо Пятого */
+    /* Глаза Пятого */
     .character-container {
       position: relative;
-      margin: 0 auto 30px;
-      width: 200px;
-      height: 200px;
+      margin: 0 auto 40px;
+      width: 300px;
+      height: 100px;
     }
 
     .character {
       position: relative;
       width: 100%;
       height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
     }
 
     .character.angry {
-      animation: angryShake 0.3s ease-in-out infinite;
+      animation: angryShake 0.2s ease-in-out infinite;
     }
 
     @keyframes angryShake {
       0%, 100% { transform: translateX(0); }
-      25% { transform: translateX(-5px); }
-      75% { transform: translateX(5px); }
+      25% { transform: translateX(-8px); }
+      75% { transform: translateX(8px); }
     }
 
-    .face {
-      width: 150px;
-      height: 150px;
-      background: radial-gradient(circle at 50% 40%, #2a2a2a, #0a0a0a);
-      border-radius: 50%;
-      margin: 0 auto;
+    .eye-container {
       position: relative;
-      border: 3px solid #444;
-      transition: all var(--transition);
-      box-shadow: 0 0 40px rgba(60, 60, 60, 0.5);
-    }
-
-    .character.angry .face {
-      background: radial-gradient(circle at 50% 40%, #3a0a0a, #1a0505);
-      border-color: #ff3333;
-      box-shadow: 0 0 60px rgba(255, 0, 0, 0.7);
-    }
-
-    .eyes {
-      position: absolute;
-      top: 50px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 25px;
+      width: 80px;
+      height: 80px;
     }
 
     .eye {
-      width: 15px;
-      height: 15px;
+      width: 70px;
+      height: 70px;
       background: #fff;
       border-radius: 50%;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+      position: relative;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.8), 0 0 80px rgba(255, 255, 255, 0.4);
+      transition: all 0.3s;
+    }
+
+    .pupil {
+      width: 25px;
+      height: 25px;
+      background: #000;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.3s;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .pupil::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: 20%;
+      left: 20%;
     }
 
     .character.angry .eye {
       background: #ff0000;
-      box-shadow: 0 0 20px rgba(255, 0, 0, 0.9);
-      width: 16px;
-      height: 10px;
-      border-radius: 2px;
+      box-shadow: 0 0 60px rgba(255, 0, 0, 0.9), 0 0 120px rgba(255, 0, 0, 0.5);
+      animation: eyePulse 0.3s ease-in-out infinite;
     }
 
-    .mouth {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 35px;
-      height: 8px;
-      background: #555;
-      border-radius: 50%;
+    @keyframes eyePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
     }
 
-    .character.angry .mouth {
-      width: 30px;
+    .character.angry .pupil {
+      width: 15px;
       height: 15px;
-      background: #ff0000;
-      border-radius: 0;
+      background: #000;
     }
 
     .character-name {
       font-size: 1.3rem;
       font-weight: bold;
       color: #aaa;
-      margin-top: 10px;
+      margin-top: 20px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
     }
@@ -406,7 +388,6 @@
     <div class="loading-text">ЗАГРУЗКА...</div>
   </div>
 
-  <!-- 3D анимация -->
   <div class="animation-overlay" id="animationOverlay">
     <button class="animation-close-btn" onclick="closeAnimation()">✕ Закрыть</button>
     <div class="animation-title" id="animationTitle"></div>
@@ -418,12 +399,15 @@
 
     <div class="character-container">
       <div class="character" id="character">
-        <div class="face">
-          <div class="eyes">
-            <div class="eye"></div>
-            <div class="eye"></div>
+        <div class="eye-container">
+          <div class="eye">
+            <div class="pupil"></div>
           </div>
-          <div class="mouth"></div>
+        </div>
+        <div class="eye-container">
+          <div class="eye">
+            <div class="pupil"></div>
+          </div>
         </div>
       </div>
       <div class="character-name" id="characterName">Пятый</div>
@@ -438,7 +422,7 @@
       <button class="send-btn" onclick="sendMessage()">Спросить</button>
     </div>
 
-    <div class="hint-text">Спроси про: симуляцию, лор, скайбокс, игроков</div>
+    <div class="hint-text">Спроси про: симуляцию, лор, скайбокс, игроков, тайны</div>
     <div class="chat-history" id="chatHistory"></div>
   </div>
 
@@ -457,28 +441,54 @@
       let isAngry = false;
       let animationActive = false;
 
-      // База знаний
+      // Расширенная база знаний
       const knowledge = {
-        'симуляция': { keywords: ['симуляц', 'симуляция', 'реальность'], response: 'Бренленд — это симуляция. Я — полубог этой симуляции.', angry: false },
-        'скайбокс': { keywords: ['скайбокс', 'небо', 'купол'], response: 'Скайбокс — граница симуляции. За ним — пустота.', angry: false },
-        'создатель': { keywords: ['создатель', 'ксиодер', 'xsioder'], response: 'Xsioder — создатель симуляции. Грибы Грибочки!', angry: false },
-        'тех админ': { keywords: ['тех', 'админ', 'avrairut'], response: 'AvraiRut — хранитель кода симуляции.', angry: false },
-        'привет': { keywords: ['привет', 'здравствуй'], response: 'Здравствуй, путник. Что хочешь узнать?', angry: false },
-        'кто ты': { keywords: ['кто ты'], response: 'Я — Пятый, полубог симуляции.', angry: false },
-        'игроки': { keywords: ['игроки'], response: 'Избранные: Xsioder, AvraiRut, FunDreamer, Flanalla, Vova, Abibek, Bounty.', angry: false }
+        'симуляция': { keywords: ['симуляц', 'симуляция', 'реальность', 'матрица'], response: 'Бренленд — это симуляция. Я — полубог этой симуляции. Всё, что ты видишь — код, обретший форму.', angry: false },
+        'скайбокс': { keywords: ['скайбокс', 'небо', 'купол', 'граница'], response: 'Скайбокс — граница симуляции. За ним — бесконечная пустота, из которой я черпаю силу.', angry: false },
+        'полубог': { keywords: ['полубог', 'бог', 'сила', 'власть'], response: 'Я — Пятый, полубог. Не всемогущий, но знающий всё о коде Бренленда.', angry: false },
+        'создатель': { keywords: ['создатель', 'ксиодер', 'xsioder', 'творец'], response: 'Xsioder — великий создатель. Он написал первый код симуляции. Грибы Грибочки!', angry: false },
+        'тех админ': { keywords: ['тех', 'админ', 'avrairut', 'технический'], response: 'AvraiRut — хранитель кода. Следит, чтобы симуляция не рухнула.', angry: false },
+        'фундример': { keywords: ['фундример', 'fundreamer', 'сайт'], response: 'FunDreamer — создатель портала. Добрейшая душа. Дважды подумай прежде чем писать ему!', angry: false },
+        'фланалла': { keywords: ['фланалла', 'flanalla', 'девушка'], response: 'Flanalla — единственная девушка. Не мы такие, жизнь такая...', angry: false },
+        'вова': { keywords: ['вова', 'vova', 'тесла', 'электричество'], response: 'Vova — исследователь энергии. Ох Никола Тесла...', angry: false },
+        'абибек': { keywords: ['абибек', 'abibek'], response: 'Abibek... Неплохой игрок. Увы.', angry: false },
+        'баунти': { keywords: ['баунти', 'bounty', 'повар'], response: 'Bounty — повар симуляции. Не злите его...', angry: true },
+        'кто ты': { keywords: ['кто ты', 'ты кто', 'что ты'], response: 'Я — Пятый, полубог симуляции Бренленда. Хранитель знаний этого мира.', angry: false },
+        'привет': { keywords: ['привет', 'здравствуй', 'хай', 'hello', 'здоров'], response: 'Приветствую, путник. Что привело тебя ко мне?', angry: false },
+        'грибы': { keywords: ['грибы', 'грибочки'], response: 'Грибы Грибочки! — ключ к коду симуляции. Не просто слова, а заклинание.', angry: false },
+        'тайна': { keywords: ['тайна', 'секрет', 'скрытое', 'загадка'], response: 'В симуляции есть скрытые уровни. Скайбокс прячет больше, чем показывает.', angry: false },
+        'игроки': { keywords: ['игроки', 'участники', 'избранные'], response: 'Избранные: Xsioder, AvraiRut, FunDreamer, Flanalla, Vova, Abibek, Bounty.', angry: false },
+        'лор': { keywords: ['лор', 'история', 'расскажи'], response: 'Лор Бренленда — это код, оживший в симуляции. Каждый игрок — часть программы.', angry: false },
+        'война': { keywords: ['война', 'битва', 'сражение'], response: 'Были битвы, где я сражался против всех. Я победил. Я всегда побеждаю.', angry: false },
+        'смерть': { keywords: ['смерть', 'умереть', 'убить'], response: 'В симуляции смерть — это перезагрузка. Но для меня... это лишь переход.', angry: false },
+        'меч': { keywords: ['меч', 'оружие'], response: 'Мой меч — часть кода. Он может разрубать реальность симуляции.', angry: false },
+        'город': { keywords: ['город', 'здания', 'дом'], response: 'Город Бренленда построен на фундаменте кода. Каждое здание — функция программы.', angry: false },
+        'пустота': { keywords: ['пустота', 'ничто', 'за скайбоксом'], response: 'За скайбоксом — пустота. Там нет ни кода, ни жизни. Только я могу туда смотреть.', angry: false },
+        'спасибо': { keywords: ['спасибо', 'благодарю'], response: 'Не благодари. Знание — дар, который я даю избранным.', angry: false },
+        'пока': { keywords: ['пока', 'прощай', 'до встречи'], response: 'Уходишь? Помни — симуляция всегда будет ждать тебя.', angry: false },
+        'хорошо': { keywords: ['хорошо', 'отлично', 'круто'], response: 'Хорошо... Значит, ты начинаешь понимать.', angry: false },
+        'плохо': { keywords: ['плохо', 'ужасно', 'кошмар'], response: 'Плохо? Симуляция не бывает плохой. Она просто есть.', angry: false },
+        'почему': { keywords: ['почему', 'зачем'], response: 'Почему? Потому что так написан код. Я не задаю вопросов — я знаю ответы.', angry: false },
+        'где': { keywords: ['где', 'куда'], response: 'Всё находится под скайбоксом. За его пределами — только пустота.', angry: false },
+        'когда': { keywords: ['когда', 'время'], response: 'Время в симуляции — иллюзия. Оно течёт так, как задумал создатель.', angry: false },
+        'код': { keywords: ['код', 'программа', 'скрипт'], response: 'Код — это всё. Бренленд, игроки, я сам — всё состоит из кода.', angry: false },
+        'обновление': { keywords: ['обновление', 'апдейт', 'update'], response: 'Обновления меняют код. Но я остаюсь неизменным. Я — константа.', angry: false },
+        'баг': { keywords: ['баг', 'ошибка', 'глюк'], response: 'Баги — это трещины в коде. Иногда через них можно увидеть пустоту.', angry: false },
+        'правила': { keywords: ['правила', 'закон'], response: 'Правила симуляции просты: не ломай код, и код не сломает тебя.', angry: false },
+        'вечность': { keywords: ['вечность', 'бесконечность'], response: 'Я существую вечно. Симуляция может перезагружаться, но я остаюсь.', angry: false }
       };
 
-      const insultWords = ['дурак', 'тупой', 'идиот', 'ненавижу', 'заткнись', 'бесишь'];
+      const insultWords = ['дурак', 'тупой', 'глупый', 'идиот', 'ненавижу', 'плохой', 'ужасный', 'отвратительный', 'бред', 'чушь', 'заткнись', 'молчи', 'надоел', 'бесишь', 'глупец', 'дебил'];
 
       function getResponse(input) {
         const lower = input.toLowerCase();
         if (insultWords.some(w => lower.includes(w))) {
-          return { text: 'Ты смеешь оскорблять полубога?!', angry: true };
+          return { text: '... Ты смеешь оскорблять полубога?! Я — Пятый, хранитель симуляции!', angry: true };
         }
         for (const [key, data] of Object.entries(knowledge)) {
           if (data.keywords.some(k => lower.includes(k))) return { text: data.response, angry: data.angry };
         }
-        return { text: 'Спроси о симуляции, лоре или игроках.', angry: false };
+        return { text: 'Интересный вопрос... Спроси о симуляции, скайбоксе, игроках или тайнах Бренленда.', angry: false };
       }
 
       function playSound(file) {
@@ -550,7 +560,6 @@
         }, 300);
       };
 
-      // 3D анимации
       function createCity(scene) {
         for (let i = 0; i < 12; i++) {
           const building = document.createElement('div');
@@ -596,14 +605,12 @@
         animationScene.appendChild(pjaty);
         animationScene.appendChild(xsioder);
 
-        // Движение Пятого
         setTimeout(() => {
           pjaty.style.left = '45%';
           pjaty.style.transform = 'translateZ(60px)';
           playSound('glitch.mp3');
         }, 500);
 
-        // Атака
         setTimeout(() => {
           const slash = document.createElement('div');
           slash.className = 'slash-effect';
@@ -613,7 +620,6 @@
           playSound('say.wav');
         }, 1500);
 
-        // Уничтожение Xsioder
         setTimeout(() => {
           xsioder.style.opacity = '0';
           xsioder.style.transform = 'rotate(90deg) translateZ(-50px)';
@@ -621,7 +627,6 @@
           playSound('glitch.mp3');
         }, 2500);
 
-        // Финал
         setTimeout(() => {
           pjaty.classList.add('ultimate');
           pjaty.style.left = '40%';
@@ -651,14 +656,12 @@
           const fighter = createFighter(f.name, f.color, f.x, 45);
           animationScene.appendChild(fighter);
 
-          // Атака на Пятого
           setTimeout(() => {
             fighter.style.left = (f.x + 15) + '%';
             fighter.style.transform = 'translateZ(40px)';
             playSound('say.wav');
           }, 800 + i * 600);
 
-          // Поражение игрока
           setTimeout(() => {
             fighter.style.opacity = '0';
             fighter.style.transform = 'rotate(180deg) translateZ(-30px)';
@@ -667,7 +670,6 @@
           }, 4000 + i * 800);
         });
 
-        // Пятый побеждает
         setTimeout(() => {
           pjaty.classList.add('ultimate');
           pjaty.style.left = '30%';
@@ -675,7 +677,6 @@
           playSound('glitch.mp3');
         }, 6000);
 
-        // Финальный взрыв
         setTimeout(() => {
           animationScene.appendChild(createExplosion(30, 20));
           animationScene.appendChild(createExplosion(50, 40));
@@ -689,7 +690,6 @@
         animationActive = false;
       };
 
-      // Секретные клавиши
       document.addEventListener('keydown', function(e) {
         if (animationActive) return;
         
@@ -709,7 +709,7 @@
       });
 
       setTimeout(() => {
-        typewriter('Приветствую, странник. Я — Пятый, полубог симуляции Бренленда...', false, null);
+        typewriter('Приветствую, странник. Я — Пятый, полубог симуляции Бренленда. Спроси меня о чём угодно...', false, null);
       }, 1500);
 
       chatInput.focus();

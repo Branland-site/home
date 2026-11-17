@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#1a0a02">
   <title>BRANLANDIA — Minecraft Server</title>
-  <meta name="description" content="BranLandia — живой Minecraft-сервер с дружным сообществом. Подай заявку и стань частью сообщества!">
+  <meta name="description" content="BranLandia — живой Minecraft-сервер с собственной историей, событиями и модами. Подай заявку и стань частью сообщества!">
   <meta property="og:title" content="BRANLANDIA — Minecraft Server">
-  <meta property="og:description" content="Атмосферный Minecraft-проект с постепенным развитием мира.">
+  <meta property="og:description" content="Атмосферный Minecraft-проект с собственной историей, событиями, модами и постепенным развитием мира.">
   <meta property="og:type" content="website">
   <link rel="icon" type="image/png" href="ico.png">
   <link rel="apple-touch-icon" href="ico.png">
@@ -562,6 +562,66 @@
       .rv { opacity: 1; transform: none; filter: none; }
       .hero h1 .ch { opacity: 1; transform: none; }
     }
+
+    /* ---------- Form help / status ---------- */
+    .form-note { margin-top: 18px; padding: 16px 18px; border-radius: 16px; background: rgba(255,200,0,.05); border: 1px dashed rgba(255,200,0,.3); color: var(--text-muted); font-size: .92rem; text-align: center; }
+    .form-note .row { justify-content: center; margin-top: 12px; }
+    .form-note .btn { padding: 9px 16px; font-size: .85rem; }
+    .form-help { margin-top: 18px; padding: 20px; border-radius: 18px; background: rgba(255,59,31,.1); border: 1px solid rgba(255,90,50,.55); animation: pageIn .5s ease; }
+    .form-help[hidden] { display: none; }
+    .form-help h4 { font-family: var(--font-display); font-size: 1rem; color: #ff8a4d; margin-bottom: 8px; }
+    .form-help p { color: var(--text-muted); font-size: .95rem; margin-bottom: 14px; }
+    .form-help .row { gap: 10px; }
+    .form-help .btn { padding: 10px 16px; font-size: .88rem; }
+
+    /* ---------- Nova assistant ---------- */
+    .nova-fab { position: fixed; right: 22px; bottom: 22px; z-index: 300; width: 68px; height: 68px; border-radius: 50%; border: 1px solid rgba(255,170,60,.55); background: radial-gradient(circle at 30% 25%, #3a1a0a, #140805); cursor: pointer; display: grid; place-items: center; box-shadow: 0 14px 40px rgba(0,0,0,.6), 0 0 40px rgba(255,120,30,.4); transition: transform .3s var(--transition), box-shadow .3s; }
+    .nova-fab:hover { transform: scale(1.08); box-shadow: 0 14px 40px rgba(0,0,0,.6), 0 0 56px rgba(255,170,0,.6); }
+    .nova-fab canvas { width: 56px; height: 56px; pointer-events: none; }
+    .nova-fab.hide { transform: scale(0); pointer-events: none; }
+    .nova-tip { position: fixed; right: 22px; bottom: 104px; z-index: 299; max-width: 260px; padding: 14px 34px 14px 16px; border-radius: 18px 18px 4px 18px; background: #1f0e06; border: 1px solid rgba(255,150,60,.5); color: var(--text); font-size: .92rem; line-height: 1.5; cursor: pointer; box-shadow: 0 18px 50px rgba(0,0,0,.6); animation: modalIn .5s cubic-bezier(.2,1.4,.4,1); }
+    .nova-tip button { position: absolute; top: 6px; right: 8px; background: none; border: 0; color: var(--text-muted); font-size: 18px; cursor: pointer; }
+    .nova-panel { position: fixed; right: 22px; bottom: 22px; z-index: 310; width: min(410px, calc(100vw - 32px)); height: min(660px, calc(100vh - 44px)); display: flex; flex-direction: column; border-radius: 26px; background: rgba(20,9,4,.94); backdrop-filter: blur(26px); -webkit-backdrop-filter: blur(26px); border: 1px solid rgba(255,130,60,.35); box-shadow: 0 40px 100px rgba(0,0,0,.75), 0 0 80px rgba(255,100,30,.2); overflow: hidden; opacity: 0; transform: translateY(24px) scale(.96); transform-origin: 100% 100%; pointer-events: none; visibility: hidden; transition: opacity .35s var(--transition), transform .35s var(--transition), visibility .35s; }
+    .nova-panel.open { opacity: 1; transform: none; pointer-events: auto; visibility: visible; }
+    .nv-h { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--border); background: linear-gradient(180deg, rgba(255,100,40,.12), transparent); }
+    .nv-h canvas { width: 42px; height: 42px; flex: none; }
+    .nv-h .t { flex: 1; min-width: 0; line-height: 1.25; }
+    .nv-h .t b { font-family: var(--font-display); font-size: 1rem; }
+    .nv-h .t small { display: flex; align-items: center; gap: 6px; color: var(--text-muted); font-size: .72rem; }
+    .nv-h .t small i { width: 7px; height: 7px; border-radius: 50%; background: #3be58a; flex: none; }
+    .nv-h .ib { width: 34px; height: 34px; border-radius: 10px; border: 1px solid var(--border); background: rgba(255,255,255,.04); color: var(--text); cursor: pointer; font-size: 14px; }
+    .nv-h .ib:hover { background: rgba(255,100,50,.2); }
+    .nv-h .ib.on { border-color: var(--gold); }
+    .nv-m { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; scroll-behavior: smooth; }
+    .nova-panel .msg { max-width: 88%; padding: 10px 14px; border-radius: 16px; font-size: .93rem; line-height: 1.55; word-wrap: break-word; overflow-wrap: anywhere; animation: pageIn .35s ease; }
+    .nova-panel .msg.a { align-self: flex-start; background: rgba(255,255,255,.06); border: 1px solid var(--border); border-bottom-left-radius: 4px; }
+    .nova-panel .msg.u { align-self: flex-end; background: linear-gradient(135deg, #ff6b2b, #ff9500); color: #fff; border-bottom-right-radius: 4px; }
+    .nova-panel .msg a { color: #ffcc66; text-decoration: underline; }
+    .nova-panel .msg ul { margin: 6px 0 6px 18px; }
+    .nova-panel .msg code { background: rgba(0,0,0,.4); padding: 1px 6px; border-radius: 6px; font-size: .85em; }
+    .nova-panel .msg pre { position: relative; background: rgba(0,0,0,.5); border-radius: 10px; padding: 12px; margin: 8px 0; overflow-x: auto; }
+    .nova-panel .msg pre code { background: none; padding: 0; white-space: pre; }
+    .nova-panel .msg pre .cp { position: absolute; top: 6px; right: 6px; font-size: .7rem; padding: 3px 8px; border-radius: 8px; border: 1px solid var(--border); background: #2a1208; color: var(--text); cursor: pointer; }
+    .typing { display: inline-flex; gap: 4px; padding: 4px 0; }
+    .typing i { width: 7px; height: 7px; border-radius: 50%; background: #ff9a55; animation: bounce 1s infinite; }
+    .typing i:nth-child(2) { animation-delay: .15s; } .typing i:nth-child(3) { animation-delay: .3s; }
+    @keyframes bounce { 0%,60%,100% { transform: none; opacity: .5; } 30% { transform: translateY(-5px); opacity: 1; } }
+    .nv-c { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 16px 10px; }
+    .nv-c .chip { padding: 7px 13px; border-radius: 50px; border: 1px solid rgba(255,130,60,.4); background: rgba(255,100,50,.1); color: #ffd2b0; font: inherit; font-size: .82rem; font-weight: 700; cursor: pointer; transition: all .25s; }
+    .nv-c .chip:hover { background: rgba(255,100,50,.28); transform: translateY(-2px); }
+    .nv-f { padding: 10px 14px 12px; border-top: 1px solid var(--border); }
+    .nv-in { display: flex; align-items: flex-end; gap: 8px; padding: 6px 6px 6px 14px; border-radius: 18px; background: rgba(0,0,0,.4); border: 1px solid var(--border); }
+    .nv-in:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(255,100,50,.15); }
+    .nv-in textarea { flex: 1; background: none; border: 0; outline: 0; color: var(--text); font: inherit; font-size: .93rem; resize: none; max-height: 110px; padding: 8px 0; line-height: 1.4; }
+    .nv-in .sb2 { width: 38px; height: 38px; border-radius: 12px; border: 0; cursor: pointer; font-size: 15px; flex: none; color: #fff; background: rgba(255,255,255,.08); }
+    .nv-in .sb2.send { background: linear-gradient(135deg, #ff6b2b, #ffb000); }
+    .nv-in .sb2.rec { background: #e5322b; animation: ping 1.4s infinite; }
+    .nv-n { margin-top: 8px; text-align: center; font-size: .68rem; color: var(--text-muted); opacity: .75; line-height: 1.4; }
+    @media (max-width: 560px) {
+      .nova-panel { inset: 0; width: 100%; height: 100%; max-height: none; border-radius: 0; }
+      .nova-fab { right: 14px; bottom: 14px; width: 60px; height: 60px; }
+      .nova-tip { right: 14px; bottom: 86px; }
+    }
   </style>
 </head>
 <body>
@@ -644,6 +704,7 @@
         <button class="navbtn" data-route="join">Заявка</button>
         <button class="navbtn" data-route="contacts">Контакты</button>
         <button class="navbtn" data-route="about">О сервере</button>
+        <button class="navbtn" type="button" data-nova-open><svg class="ico"><use href="#i-spark"/></svg>Нова</button>
         <a class="navbtn tg" data-tg-channel href="https://t.me/BranLandia" target="_blank" rel="noopener"><svg class="ico"><use href="#i-plane"/></svg>Telegram</a>
         <a class="btn donate" href="https://www.donationalerts.com/r/branland" target="_blank" rel="noopener"><svg class="ico"><use href="#i-coin"/></svg>Поддержка сервера</a>
       </nav>
@@ -662,6 +723,7 @@
             <a class="btn discord" href="https://discord.gg/2u2vsZ2ekH" target="_blank" rel="noopener"><svg class="ico"><use href="#i-chat"/></svg>ИГРАТЬ В DISCORD</a>
             <button class="btn secondary" data-go="join"><svg class="ico"><use href="#i-edit"/></svg>ЗАЯВКА</button>
             <a class="btn primary" data-tg-channel href="https://t.me/BranLandia" target="_blank" rel="noopener"><svg class="ico"><use href="#i-plane"/></svg>TELEGRAM</a>
+            <button class="btn" type="button" data-nova-open><svg class="ico"><use href="#i-spark"/></svg>Спросить Нову</button>
             <a class="btn donate" href="https://www.donationalerts.com/r/branland" target="_blank" rel="noopener"><svg class="ico"><use href="#i-coin"/></svg>Поддержка сервера</a>
           </div>
         </div>
@@ -712,7 +774,7 @@
           <input type="hidden" name="_subject" value="Новая заявка на вступление в BranLandia">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="false">
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true">
           <div class="form-group">
             <label for="joinNick"><svg class="ico"><use href="#i-cube"/></svg>Игровой ник *</label>
             <input type="text" id="joinNick" name="nick" required placeholder="Ваш ник в Minecraft">
@@ -735,6 +797,24 @@
           </div>
           <button type="submit" class="btn donate submit-btn" id="submitBtn"><svg class="ico"><use href="#i-edit"/></svg><span>ОТПРАВИТЬ ЗАЯВКУ</span></button>
         </form>
+        <div class="form-help" id="formHelp" role="alert" hidden>
+          <h4>Не удалось отправить автоматически</h4>
+          <p>Твои данные сохранены в форме — ничего не потеряно. Текст заявки скопирован: просто отправь его одним из способов ниже.</p>
+          <div class="row">
+            <a class="btn primary" id="helpTg" href="https://t.me/clvp013" target="_blank" rel="noopener"><svg class="ico"><use href="#i-plane"/></svg>Написать @clvp013</a>
+            <a class="btn" data-tg-channel href="https://t.me/BranLandia" target="_blank" rel="noopener" style="border-color:rgba(255,150,0,.4)"><svg class="ico"><use href="#i-mega"/></svg>Telegram-канал</a>
+            <a class="btn discord" href="https://discord.gg/2u2vsZ2ekH" target="_blank" rel="noopener"><svg class="ico"><use href="#i-chat"/></svg>Discord</a>
+            <button class="btn" type="button" id="helpRetry"><svg class="ico"><use href="#i-refresh"/></svg>Повторить</button>
+          </div>
+        </div>
+        <div class="form-note">
+          Заявка не отправляется или долго нет ответа? Заходи в наш Telegram-канал и Discord-сервер — там быстро помогут.
+          <div class="row">
+            <a class="btn" data-tg-channel href="https://t.me/BranLandia" target="_blank" rel="noopener" style="border-color:rgba(255,150,0,.4)"><svg class="ico"><use href="#i-plane"/></svg>Telegram</a>
+            <a class="btn discord" href="https://discord.gg/2u2vsZ2ekH" target="_blank" rel="noopener"><svg class="ico"><use href="#i-chat"/></svg>Discord</a>
+            <button class="btn secondary" type="button" data-nova-open><svg class="ico"><use href="#i-spark"/></svg>Спросить Нову</button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1063,6 +1143,8 @@
 
       document.addEventListener('keydown', function(e) {
         if (e.key === 'Shift') { shiftPressed = true; return; }
+        const t = e.target;
+        if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
         if (isX(e.key) && shiftPressed) {
           e.preventDefault();
           vignetteCounter++;
@@ -1076,30 +1158,111 @@
       document.addEventListener('keyup', function(e) { if (e.key === 'Shift') shiftPressed = false; });
       // --- end vignette logic ---
 
-      /* ---------- Form ---------- */
-      $('#joinForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const btn = $('#submitBtn');
-        btn.classList.add('loading');
-        btn.querySelector('span').textContent = 'ОТПРАВЛЯЕМ…';
-        const done = () => {
-          btn.classList.remove('loading');
-          btn.querySelector('span').textContent = 'ОТПРАВИТЬ ЗАЯВКУ';
+      /* ---------- Form ----------
+         Каналы доставки (все необязательные кроме FormSubmit; работают параллельно, достаточно одного успеха):
+         1) FormSubmit (почта) — работает сразу, но ОДИН РАЗ нужно подтвердить ящик по письму от FormSubmit.
+         2) Web3Forms (почта) — вставь бесплатный Access Key с web3forms.com (250 заявок/мес).
+         3) Discord Webhook — заявка прилетает прямо в канал Discord (Настройки канала → Интеграции → Вебхуки). */
+      const FORM_CFG = {
+        formsubmitEmail: 'branland.off@gmail.com',
+        web3formsKey: '',
+        discordWebhook: ''
+      };
+      const TG_APPS = 'https://t.me/clvp013';
+      const form = $('#joinForm'), help = $('#formHelp');
+
+      function timeoutSignal(ms) { const c = new AbortController(); setTimeout(() => c.abort(), ms); return c.signal; }
+      function appText(d) {
+        return 'Заявка в BranLandia\n' +
+          'Ник: ' + d.nick + '\nВозраст: ' + d.age + '\nDiscord: ' + d.discord + '\nTelegram: ' + d.telegram + '\nО себе: ' + d.about;
+      }
+      async function viaFormSubmit(d) {
+        const r = await fetch('https://formsubmit.co/ajax/' + encodeURIComponent(FORM_CFG.formsubmitEmail), {
+          method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ ...d, _subject: 'Новая заявка на вступление в BranLandia', _template: 'table', _captcha: 'false' }),
+          signal: timeoutSignal(15000)
+        });
+        const j = await r.json().catch(() => ({}));
+        if (!r.ok || String(j.success) !== 'true') throw new Error(j.message || ('FormSubmit ' + r.status));
+      }
+      async function viaWeb3(d) {
+        const r = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ access_key: FORM_CFG.web3formsKey, subject: 'Новая заявка в BranLandia', from_name: 'BranLandia — сайт', ...d }),
+          signal: timeoutSignal(15000)
+        });
+        const j = await r.json().catch(() => ({}));
+        if (!r.ok || !j.success) throw new Error(j.message || ('Web3Forms ' + r.status));
+      }
+      async function viaDiscord(d) {
+        const r = await fetch(FORM_CFG.discordWebhook, {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            username: 'Заявки BranLandia', allowed_mentions: { parse: [] },
+            embeds: [{ title: 'Новая заявка в BranLandia', color: 0xff6b2b, fields: [
+              { name: 'Ник', value: d.nick.slice(0, 200) }, { name: 'Возраст', value: String(d.age) },
+              { name: 'Discord', value: d.discord.slice(0, 200) }, { name: 'Telegram', value: d.telegram.slice(0, 200) },
+              { name: 'О себе', value: d.about.slice(0, 1000) }] }]
+          }),
+          signal: timeoutSignal(15000)
+        });
+        if (!r.ok) throw new Error('Discord ' + r.status);
+      }
+      function sendApplication(d) {
+        const jobs = [viaFormSubmit(d)];
+        if (FORM_CFG.web3formsKey) jobs.push(viaWeb3(d));
+        if (FORM_CFG.discordWebhook) jobs.push(viaDiscord(d));
+        return Promise.allSettled(jobs).then(res => {
+          if (!res.some(r => r.status === 'fulfilled')) throw new Error(res.map(r => r.reason && r.reason.message).join(' | '));
+        });
+      }
+      function copyText(t) {
+        return (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).catch(() => {
+          const ta = document.createElement('textarea'); ta.value = t; ta.style.cssText = 'position:fixed;opacity:0';
+          document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch {} ta.remove();
+        });
+      }
+
+      async function submitForm() {
+        const btn = $('#submitBtn'), label = btn.querySelector('span');
+        if (btn.classList.contains('loading')) return;
+        const fd = new FormData(form);
+        if (fd.get('_honey')) { $('#confirmationModal').classList.add('open'); return; } // бот
+        const d = { nick: (fd.get('nick') || '').trim(), age: (fd.get('age') || '').trim(), discord: (fd.get('discord') || '').trim(),
+          telegram: (fd.get('telegram') || '').trim(), about: (fd.get('about') || '').trim() };
+        help.hidden = true;
+        btn.classList.add('loading'); label.textContent = 'ОТПРАВЛЯЕМ…';
+        try {
+          await sendApplication(d);
+          form.reset();
+          try { localStorage.removeItem('bl_pending'); } catch {}
           $('#confirmationModal').classList.add('open');
-          this.reset();
-        };
-        fetch(this.action, {
-          method: 'POST',
-          body: new FormData(this),
-          headers: { 'Accept': 'application/json' }
-        }).then(done).catch(done);
-      });
+        } catch (err) {
+          console.warn('Заявка не отправлена:', err && err.message);
+          try { localStorage.setItem('bl_pending', JSON.stringify(d)); } catch {}
+          const text = appText(d);
+          copyText(text);
+          $('#helpTg').href = TG_APPS + '?text=' + encodeURIComponent(text.slice(0, 1500));
+          help.hidden = false;
+          help.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' });
+          toast('Не отправилось — текст скопирован, пришли его в Telegram или Discord');
+        } finally {
+          btn.classList.remove('loading'); label.textContent = 'ОТПРАВИТЬ ЗАЯВКУ';
+        }
+      }
+      form.addEventListener('submit', e => { e.preventDefault(); submitForm(); });
+      $('#helpRetry').onclick = () => { if (form.reportValidity()) submitForm(); };
+      try { // восстановить неотправленную заявку
+        const p = JSON.parse(localStorage.getItem('bl_pending') || 'null');
+        if (p) { ['nick','age','discord','telegram','about'].forEach(k => { const f = form.elements[k]; if (f && p[k]) f.value = p[k]; }); }
+      } catch {}
 
       $$('[data-route]').forEach(b => b.onclick = () => route(b.dataset.route));
       $$('[data-go]').forEach(b => b.onclick = () => route(b.dataset.go));
       $$('[data-tg-channel]').forEach(a => a.href = config.telegram_url);
       $('#hamb').onclick = () => $('#navLinks').classList.toggle('open');
 
+      window.BL = { players, tg: config.telegram_url };
       renderPlayers();
       $$('.section .rv').forEach(el => { if (!el.closest('#playersGrid')) io.observe(el); });
 
@@ -1109,6 +1272,253 @@
       addEventListener('load', () => setTimeout(() => $('#loader').classList.add('done'), reduced ? 0 : 900));
       setTimeout(() => $('#loader').classList.add('done'), 3000);
     })();
+  </script>
+  <script>
+  /* ================= Нова — помощник BranLandia ================= */
+  (function () {
+    'use strict';
+    const BL = window.BL || { players: [], tg: 'https://t.me/BranLandia' };
+    const TGC = 'https://t.me/BranLandia', TGA = 'https://t.me/clvp013', TGO = 'https://t.me/Xsioder',
+          DS = 'https://discord.gg/2u2vsZ2ekH', DA = 'https://www.donationalerts.com/r/branland';
+    const AI = 'https://text.pollinations.ai/openai';
+    const LS = {
+      get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch { return d; } },
+      set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} }
+    };
+    const plist = BL.players.map(p => `- ${p.name}: ${p.description}`).join('\n');
+
+    const KB = `ФАКТЫ О САЙТЕ И СЕРВЕРЕ BRANLANDIA (единственный источник правды):
+- BranLandia — Minecraft-сервер/проект: атмосферный, со своей историей (лором), событиями, модами и постепенным развитием мира, дружное сообщество.
+- Вступление: вкладка «Заявка» на сайте (раздел #join). Поля: игровой ник, возраст (10–100), Discord, Telegram, рассказ о себе (почему хочешь присоединиться, что умеешь). Ответ приходит в течение 72 часов в Discord или Telegram — нужно проверять оба.
+- Если в личку написал @clvp013 или @Xsioder — человек принят на сервер.
+- Если заявка не отправляется или нет ответа: написать в Telegram-канал ${TGC} или зайти в Discord-сервер ${DS}; заявки принимает также @clvp013 (${TGA}) напрямую в Telegram.
+- Контакты: Telegram заявок @clvp013 (${TGA}); создатель сервера @Xsioder (${TGO}); официальный канал новостей ${TGC}; Discord ${DS}; поддержать сервер: ${DA}.
+- Discord нужен, чтобы найти компанию для игры и общаться с игроками.
+- Игроки сервера:
+${plist}
+- Адрес сервера (IP), версию игры, список модов и правила на сайте НЕ указаны — Нова их не знает и не выдумывает; их нужно уточнять в Discord или у @clvp013.
+- Сайт сделал игрок FunDreamer.`;
+    const SYS = `Ты — Нова, дружелюбный помощник на сайте Minecraft-сервера BranLandia. Отвечай по-русски, коротко и по делу: 1–4 предложения, списки только когда нужно, максимум один эмодзи. Твоя главная задача — помогать посетителям: объяснить, как подать заявку, куда писать, что за сервер, кто такие игроки, что делать если что-то не работает. Про BranLandia отвечай ТОЛЬКО по фактам ниже; чего там нет — честно скажи, что не знаешь, и посоветуй спросить в Discord или у @clvp013. Ничего не выдумывай (IP, версии, моды, правила, даты). Если у человека не отправляется заявка — сразу дай запасной путь: Telegram-канал и Discord-сервер, ссылки есть в фактах. Ссылки на разделы сайта давай в виде [Заявка](#join), [Контакты](#contacts), [Игроки](#players), [О сервере](#about). На вопросы не про сервер (код, игры, учёба, жизнь) отвечай как обычный умный помощник. Не проси личные данные.\n\n${KB}`;
+
+    const link = (t, u) => `[${t}](${u})`;
+    const HELP = `Если заявка не отправляется — не страшно, есть запасной путь:\n- зайди в Telegram-канал ${link('t.me/BranLandia', TGC)} и напиши там\n- или в Discord-сервер ${link('войти в Discord', DS)}\n- можно написать напрямую ${link('@clvp013', TGA)} — он принимает заявки\nУкажи ник, возраст, Discord, Telegram и пару слов о себе.`;
+    function localAnswer(q) {
+      const s = q.toLowerCase();
+      if (/заявк.*(не |ошиб|сбо|слома|завис)|не отправ|не работает|не получа|не могу (отправ|подать)|ошибка/.test(s)) return HELP;
+      if (/как.*(подать|отправ|попасть|вступ|присоед|зайти)|вступи|заявк|хочу (на сервер|играть)/.test(s)) return `Чтобы вступить:\n- открой вкладку ${link('Заявка', '#join')}\n- укажи ник, возраст, Discord и Telegram\n- расскажи о себе\nОтвет придёт в течение 72 часов в Discord или Telegram — проверяй оба. Если написал @clvp013 или @Xsioder — ты принят!\n\nНе отправляется? ${link('Telegram-канал', TGC)} и ${link('Discord', DS)} всегда помогут.`;
+      if (/72|сколько (ждать|ответ)|когда ответ|ответ на заявк|принят/.test(s)) return 'Ответ на заявку приходит в течение 72 часов — в Discord или Telegram, поэтому проверяй оба. Если тебе написал @clvp013 или @Xsioder — ты принят на сервер.';
+      const pl = BL.players.find(p => s.includes(p.name.toLowerCase()));
+      if (pl) return `**${pl.name}** — ${pl.description}`;
+      if (/игрок|кто играет|состав|список/.test(s)) return 'На сервере играют: ' + BL.players.map(p => p.name).join(', ') + `.\nПодробнее — во вкладке ${link('Игроки', '#players')}.`;
+      if (/привет|здравств|хай|hello|\bhi\b|добрый/.test(s)) return 'Привет! Я Нова ✦ Помогу подать заявку на BranLandia, подскажу контакты и отвечу на вопросы. С чего начнём?';
+      if (/\bip\b|айпи|адрес сервера|верси|мод|сборк|скачат|правил|лаунчер/.test(s)) return `Адрес сервера, версию, моды и правила на сайте не указаны, и я их не выдумываю. Их дают в ${link('Discord', DS)} или у ${link('@clvp013', TGA)} — после заявки точно подскажут.`;
+      if (/discord|дискорд|\bдс\b/.test(s)) return `Наш Discord: ${link('войти на сервер', DS)}. Там можно найти компанию для игры и пообщаться с игроками.`;
+      if (/telegram|телеграм|\bтг\b|канал|новост/.test(s)) return `Официальный канал с новостями: ${link('t.me/BranLandia', TGC)}. Заявки принимает ${link('@clvp013', TGA)}, создатель — ${link('@Xsioder', TGO)}.`;
+      if (/контакт|связ|написат|создател|админ/.test(s)) return `Контакты:\n- заявки: ${link('@clvp013', TGA)}\n- создатель: ${link('@Xsioder', TGO)}\n- канал: ${link('BranLandia', TGC)}\n- Discord: ${link('войти', DS)}\nВсё на вкладке ${link('Контакты', '#contacts')}.`;
+      if (/донат|поддерж|деньг|помочь серверу/.test(s)) return `Поддержать сервер можно через ${link('DonationAlerts', DA)}. Спасибо, это очень помогает проекту!`;
+      if (/сервер|branlandia|бранландия|что это|о проекте|лор|истори|расскаж/.test(s)) return `BranLandia — атмосферный Minecraft-проект со своей историей, событиями и модами. Мир развивается постепенно, а сообщество дружное. Подробнее — ${link('О сервере', '#about')}, вступить — ${link('Заявка', '#join')}.`;
+      return `Тут я могу помочь с заявкой, контактами и рассказать про сервер. На другие вопросы мне нужен ИИ, а он сейчас недоступен — попробуй позже или спроси в ${link('Discord', DS)}.`;
+    }
+
+    /* ---------- мини-markdown (экранирование до разметки) ---------- */
+    const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    function md(src) {
+      const codes = [];
+      let s = esc(src).replace(/```[\w+#-]*\n?([\s\S]*?)(```|$)/g, (_, c) => { codes.push(c.replace(/\n$/, '')); return `\u0000${codes.length - 1}\u0000`; });
+      s = s.replace(/`([^`\n]+)`/g, '<code>$1</code>').replace(/\*\*([^*\n]+)\*\*/g, '<b>$1</b>')
+        .replace(/\[([^\]\n]+)\]\((https?:\/\/[^\s)]+|#(?:home|players|join|contacts|about))\)/g, (m, t, u) =>
+          u[0] === '#' ? `<a href="${u}" data-rl="${u.slice(1)}">${t}</a>` : `<a href="${u}" target="_blank" rel="noopener">${t}</a>`)
+        .replace(/(^|[\s(])(https?:\/\/[^\s<)"]+)/g, '$1<a href="$2" target="_blank" rel="noopener">$2</a>');
+      const out = []; let ul = false;
+      for (let ln of s.split('\n')) {
+        ln = ln.replace(/^#{1,3}\s+(.*)/, '<b>$1</b>');
+        const m = ln.match(/^\s*(?:[-*•]|\d+[.)])\s+(.*)/);
+        if (m) { if (!ul) { out.push('<ul>'); ul = true; } out.push('<li>' + m[1] + '</li>'); }
+        else { if (ul) { out.push('</ul>'); ul = false; } out.push(ln + '<br>'); }
+      }
+      if (ul) out.push('</ul>');
+      return out.join('').replace(/(<br>)+$/, '').replace(/<br>(<ul>)/g, '$1').replace(/(<\/ul>)<br>/g, '$1')
+        .replace(/\u0000(\d+)\u0000/g, (_, i) => `<pre><button class="cp" type="button">Копировать</button><code>${codes[i]}</code></pre>`)
+        .replace(/<br>(<pre>)/g, '$1').replace(/(<\/pre>)<br>/g, '$1');
+    }
+    const clean = s => s.replace(/\n*---\s*\n*(?:🌸|\*\*Support Pollinations)[\s\S]*$/i, '').replace(/\n*\*\*Support Pollinations[\s\S]*$/i, '').trim();
+
+    /* ---------- шар ---------- */
+    let ST = 'idle', isOpen = false;
+    function orb(cv, size, on) {
+      const Z = size * 2; cv.width = cv.height = Z; const x = cv.getContext('2d'), COL = ['#ff6b2b', '#ffcc00', '#ff3b1f'];
+      let t = Math.random() * 9, amp = .06;
+      (function loop() {
+        if (!cv.isConnected) return;
+        if (on() && !document.hidden) {
+          t += .033;
+          const tgt = ST == 'thinking' ? .1 : ST == 'speaking' ? .15 + .05 * Math.sin(t * 11) : ST == 'listening' ? .13 : .06;
+          amp += (tgt - amp) * .15;
+          const sp = ST == 'thinking' ? 2.6 : 1, R = Z * .3;
+          x.clearRect(0, 0, Z, Z);
+          const g = x.createRadialGradient(Z / 2, Z / 2, 0, Z / 2, Z / 2, R * 1.3);
+          g.addColorStop(0, 'rgba(255,170,40,.34)'); g.addColorStop(1, 'rgba(255,170,40,0)');
+          x.fillStyle = g; x.beginPath(); x.arc(Z / 2, Z / 2, R * 1.3, 0, 7); x.fill();
+          COL.forEach((col, i) => {
+            x.beginPath();
+            for (let k = 0; k <= 60; k++) {
+              const a = k / 60 * Math.PI * 2, n = Math.sin(a * (2 + i) + t * 1.4 * sp + i * 2) + Math.sin(a * 3 - t * 1.1 * sp),
+                r = R * (1 + amp * n * .9), px = Z / 2 + Math.cos(a) * r, py = Z / 2 + Math.sin(a) * r;
+              k ? x.lineTo(px, py) : x.moveTo(px, py);
+            }
+            x.closePath(); x.strokeStyle = col; x.lineWidth = Z * .035; x.shadowColor = col; x.shadowBlur = Z * .1; x.stroke();
+          });
+          x.shadowBlur = 0;
+        }
+        requestAnimationFrame(loop);
+      })();
+    }
+
+    /* ---------- интерфейс ---------- */
+    const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
+    const fab = el('button', 'nova-fab', '<canvas></canvas>'); fab.type = 'button'; fab.setAttribute('aria-label', 'Открыть помощника Нову');
+    const panel = el('div', 'nova-panel', `<div class="nv-h"><canvas></canvas><div class="t"><b>Нова</b><small><i></i>помощник BranLandia · ИИ</small></div>
+      <button class="ib" id="nvTts" type="button" title="Озвучивать ответы">🔊</button><button class="ib" id="nvClr" type="button" title="Очистить чат">🗑</button><button class="ib" id="nvX" type="button" title="Закрыть (Esc)">✕</button></div>
+      <div class="nv-m" id="nvM" aria-live="polite"></div><div class="nv-c" id="nvC"></div>
+      <div class="nv-f"><div class="nv-in"><textarea rows="1" maxlength="600" placeholder="Спроси про заявку, сервер или что угодно…" aria-label="Сообщение"></textarea>
+      <button class="sb2 mic" type="button" title="Голосовой ввод">🎤</button><button class="sb2 send" type="button" title="Отправить">➤</button></div>
+      <div class="nv-n">Нова — ИИ и может ошибаться. Сообщения обрабатывает сервис Pollinations — не пиши туда личные данные. Ctrl+K — открыть/закрыть.</div></div>`);
+    panel.setAttribute('role', 'dialog'); panel.setAttribute('aria-label', 'Нова — помощник');
+    document.body.append(fab, panel);
+    const M = panel.querySelector('#nvM'), C = panel.querySelector('#nvC'), TA = panel.querySelector('textarea'),
+      SEND = panel.querySelector('.send'), MIC = panel.querySelector('.mic'), TTSB = panel.querySelector('#nvTts');
+    orb(fab.querySelector('canvas'), 56, () => !isOpen);
+    orb(panel.querySelector('.nv-h canvas'), 42, () => isOpen);
+
+    const CHIPS = ['Как подать заявку?', 'Заявка не отправляется', 'Что за сервер?', 'Как связаться?', 'Кто играет на сервере?', 'Расскажи шутку'];
+    const renderChips = () => { C.innerHTML = CHIPS.map(c => `<button class="chip" type="button" data-q="${esc(c)}">${esc(c)}</button>`).join(''); };
+    C.addEventListener('click', e => { const b = e.target.closest('.chip'); if (b) ask(b.dataset.q); });
+
+    let msgs = LS.get('bl_nova_msgs', []).filter(m => m && typeof m.t == 'string'), busy = false, ctrl = null, stopped = false, tts = LS.get('bl_nova_tts', false);
+    const GREET = 'Привет! Я **Нова** ✦ Помогу подать заявку на BranLandia, подскажу контакты и отвечу на любые вопросы. Если что-то не работает — подскажу, куда написать 🎤';
+    const near = () => M.scrollHeight - M.scrollTop - M.clientHeight < 90;
+    const toBottom = f => { if (f || near()) M.scrollTop = M.scrollHeight; };
+    const bubble = (r, html) => { const b = el('div', 'msg ' + r, html); M.append(b); toBottom(true); return b; };
+    function render() {
+      M.innerHTML = ''; bubble('a', md(GREET));
+      msgs.forEach(m => bubble(m.r, m.r == 'a' ? md(m.t) : esc(m.t)));
+      C.style.display = msgs.length ? 'none' : 'flex'; if (!msgs.length) renderChips();
+    }
+    const save = () => LS.set('bl_nova_msgs', msgs.slice(-30));
+    const setBusy = b => { busy = b; SEND.textContent = b ? '■' : '➤'; SEND.title = b ? 'Остановить' : 'Отправить'; };
+
+    /* ---------- озвучка ---------- */
+    const syn = window.speechSynthesis;
+    function speak(t) {
+      if (!tts || !syn) return; syn.cancel();
+      const txt = t.replace(/```[\s\S]*?```/g, ' код ').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').replace(/https?:\/\/\S+/g, '').replace(/[*_`#>]/g, '').slice(0, 700);
+      if (!txt.trim()) return; const u = new SpeechSynthesisUtterance(txt); u.lang = 'ru-RU';
+      const v = syn.getVoices().find(v => /^ru/i.test(v.lang)); if (v) u.voice = v;
+      u.onstart = () => ST = 'speaking'; u.onend = u.onerror = () => { if (ST == 'speaking') ST = 'idle'; }; syn.speak(u);
+    }
+    TTSB.classList.toggle('on', tts);
+    TTSB.onclick = () => { tts = !tts; LS.set('bl_nova_tts', tts); TTSB.classList.toggle('on', tts); if (!tts && syn) { syn.cancel(); ST = 'idle'; } };
+    if (!syn) TTSB.style.display = 'none';
+
+    /* ---------- запрос к ИИ ---------- */
+    async function ask(text) {
+      text = (text || '').trim().slice(0, 600); if (!text || busy) return;
+      if (syn) syn.cancel();
+      msgs.push({ r: 'u', t: text }); C.style.display = 'none'; bubble('u', esc(text));
+      const b = bubble('a', '<span class="typing"><i></i><i></i><i></i></span>');
+      setBusy(true); ST = 'thinking'; stopped = false; let full = '';
+      ctrl = new AbortController(); const to = setTimeout(() => ctrl.abort(), 45000);
+      const paint = () => { b.innerHTML = md(clean(full)) || '<span class="typing"><i></i><i></i><i></i></span>'; toBottom(); };
+      try {
+        const body = { model: 'openai', stream: true, messages: [{ role: 'system', content: SYS }, ...msgs.slice(-10).map(m => ({ role: m.r == 'u' ? 'user' : 'assistant', content: m.t }))] };
+        const r = await fetch(AI, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), signal: ctrl.signal });
+        if (!r.ok || !r.body) throw new Error('http ' + r.status);
+        const rd = r.body.getReader(), dec = new TextDecoder(); let buf = '', raf = 0;
+        for (;;) {
+          const { done, value } = await rd.read(); if (done) break; buf += dec.decode(value, { stream: true }); let i;
+          while ((i = buf.indexOf('\n')) >= 0) {
+            const ln = buf.slice(0, i).trim(); buf = buf.slice(i + 1);
+            if (!ln.startsWith('data:')) continue; const p = ln.slice(5).trim(); if (p === '[DONE]') continue;
+            try { full += JSON.parse(p).choices[0].delta.content || ''; } catch {}
+          }
+          if (!raf) raf = requestAnimationFrame(() => { raf = 0; paint(); });
+        }
+        if (!clean(full)) throw new Error('empty');
+      } catch (e) {
+        if (!(stopped && clean(full)) && !clean(full)) {
+          full = localAnswer(text) + (navigator.onLine ? '\n\n(ИИ сейчас недоступен — ответила из того, что знаю о сайте.)' : '\n\n(Нет интернета — ответила из того, что знаю о сайте.)');
+        }
+      } finally { clearTimeout(to); }
+      full = clean(full); paint();
+      msgs.push({ r: 'a', t: full }); save(); setBusy(false); ST = 'idle'; speak(full);
+    }
+    const fit = () => { TA.style.height = 'auto'; TA.style.height = Math.min(TA.scrollHeight, 110) + 'px'; };
+    SEND.onclick = () => { if (busy) { stopped = true; ctrl && ctrl.abort(); return; } const v = TA.value; TA.value = ''; fit(); ask(v); };
+    TA.addEventListener('keydown', e => { if (e.key == 'Enter' && !e.shiftKey && !e.isComposing) { e.preventDefault(); SEND.click(); } });
+    TA.addEventListener('input', fit);
+    panel.querySelector('#nvClr').onclick = () => { if (busy && ctrl) ctrl.abort(); if (syn) syn.cancel(); msgs = []; save(); setBusy(false); ST = 'idle'; render(); };
+    panel.querySelector('#nvX').onclick = () => close();
+    M.addEventListener('click', e => {
+      const rl = e.target.closest('a[data-rl]');
+      if (rl) { e.preventDefault(); if (typeof window.route == 'function') window.route(rl.dataset.rl); if (innerWidth <= 560) close(); return; }
+      const c = e.target.closest('.cp'); if (!c) return;
+      const t = c.parentElement.querySelector('code').textContent;
+      (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(() => { c.textContent = 'Готово ✓'; }, () => { c.textContent = 'Не вышло'; });
+      setTimeout(() => c.textContent = 'Копировать', 1400);
+    });
+
+    /* ---------- голосовой ввод ---------- */
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition; let rec = null;
+    if (!SR) MIC.style.display = 'none';
+    else MIC.onclick = () => {
+      if (rec) { rec.stop(); return; }
+      rec = new SR(); rec.lang = 'ru-RU'; rec.interimResults = true; rec.continuous = false; let fin = '';
+      rec.onstart = () => { MIC.classList.add('rec'); ST = 'listening'; if (syn) syn.cancel(); };
+      rec.onresult = e => { let s = ''; for (const r of e.results) { s += r[0].transcript; if (r.isFinal) fin = s; } TA.value = s; fit(); };
+      rec.onerror = () => {};
+      rec.onend = () => { MIC.classList.remove('rec'); if (ST == 'listening') ST = 'idle'; const v = (fin || TA.value).trim(); rec = null; if (v) { TA.value = ''; fit(); ask(v); } };
+      try { rec.start(); } catch { rec = null; }
+    };
+
+    /* ---------- открыть / закрыть ---------- */
+    const mobile = () => innerWidth <= 560;
+    let tip = null;
+    const hideTip = () => { if (tip) { tip.remove(); tip = null; } };
+    function open(q) {
+      if (!isOpen) {
+        isOpen = true; hideTip(); panel.classList.add('open'); fab.classList.add('hide'); if (mobile()) document.documentElement.style.overflow = 'hidden';
+        if (!M.children.length) render();
+        setTimeout(() => { toBottom(true); if (!mobile() || !q) TA.focus({ preventScroll: true }); }, 340);
+      }
+      if (q) ask(q);
+    }
+    function close() {
+      if (!isOpen) return; isOpen = false; panel.classList.remove('open'); fab.classList.remove('hide');
+      document.documentElement.style.overflow = ''; if (rec) rec.stop(); if (syn) syn.cancel(); if (ST == 'speaking') ST = 'idle';
+    }
+    fab.onclick = () => open();
+    window.Nova = { open, close };
+    document.addEventListener('click', e => {
+      const a = e.target.closest('[data-nova-ask]'); if (a) { e.preventDefault(); open(a.dataset.novaAsk); return; }
+      if (e.target.closest('[data-nova-open]')) { e.preventDefault(); open(); }
+    });
+    document.addEventListener('keydown', e => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() == 'k') { e.preventDefault(); isOpen ? close() : open(); }
+      else if (e.key == 'Escape' && isOpen) close();
+    });
+
+    /* ---------- подсказка (один раз за сессию) ---------- */
+    try {
+      if (!sessionStorage.getItem('bl_nova_tip')) {
+        setTimeout(() => {
+          if (isOpen) return; sessionStorage.setItem('bl_nova_tip', '1');
+          tip = el('div', 'nova-tip', 'Привет! Я <b>Нова</b> ✦ Помогу подать заявку и отвечу на вопросы.<button type="button" aria-label="Закрыть">×</button>');
+          tip.onclick = e => { if (e.target.tagName == 'BUTTON') { hideTip(); return; } open(); };
+          document.body.append(tip); setTimeout(hideTip, 14000);
+        }, 6000);
+      }
+    } catch {}
+  })();
   </script>
 </body>
 </html>
